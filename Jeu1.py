@@ -1,7 +1,7 @@
 def jeu1 ():
     nombre : int
     limit : int
-    Joueur : int
+    joueur : int
     nb : int
     nb_coup : int
     reponse : str
