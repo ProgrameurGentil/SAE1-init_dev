@@ -1,5 +1,9 @@
 # Créé par henzo, le 23/10/2024 avec Python 3.7 en UTF-8
 
+#import <module du 1er jeu>
+#import <module du 2e jeu>
+#import <module du 3e jeu>
+
 def menu():
     choix : int
     while choix != 3: # tant que le choix n'est pas de quitter le menu n'est pas choisi
