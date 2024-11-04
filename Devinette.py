@@ -7,7 +7,7 @@ def points(lim : int, nombreDeCoups : int) -> int:
 
 
 
-def Devinette():
+def Devinette(ScoreJ1 : int, ScoreJ2 : int):
     nombre : int
     limit : int
     Joueur : int
@@ -18,8 +18,6 @@ def Devinette():
     ScoreJ2 : int
     nb_coup = 0
     sortie1 : bool
-    ScoreJ1 = 0
-    ScoreJ2 = 0
     sortie1 = True
     
     joueur = int(input("Choissisez quel joueur va entrer un nombre et une limite (1/2) "))
@@ -110,10 +108,6 @@ def Devinette():
                     print("Le joueur 2 a gagné")
                     ScoreJ2 = ScoreJ1 + 50
                     sortie2 = False
+                
     print(f"Le score du joueur 1 est {ScoreJ1} et le score du joueur 2 est {ScoreJ2}")
-
-
-
-
-if __name__ == "__main__":
-    Devinette()
+    return ScoreJ1, ScoreJ2
