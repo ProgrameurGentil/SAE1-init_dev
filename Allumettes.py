@@ -6,8 +6,8 @@ def nb_al(allumettes: int) -> str:
 
 
 # Fonction principale du jeu
-def allumettes():
-    global ScoreJ1, ScoreJ2  # Variables globales pour suivre les scores des joueurs
+def allumettes(ScoreJ1:int, ScoreJ2:int)->tuple:
+    ##global ScoreJ1, ScoreJ2  # Variables globales pour suivre les scores des joueurs
     nb_allumettes: int  # Nombre d'allumettes restantes dans le jeu
     Joueur: int  # Indique le joueur en cours (1 ou 2)
     decr_nb_al: int  # Nombre d'allumettes à retirer
