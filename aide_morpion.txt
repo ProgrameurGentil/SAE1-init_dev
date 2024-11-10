@@ -1,0 +1,29 @@
+    _____________________________
+   /                             \
++--| aide pour le jeu du morpion |--------------------------------------------------------------------------------------+
+|  \_____________________________/                                                                                      |
+|                                                                                                                       |
+|But :                                                                                                                  |
+|Le but de ce jeu est d'alligner 3 mêmes symboles que ce soit sur une ligne, une colone ou une diagonale.               |
+|                                                                                                                       |
+|Regles :                                                                                                               |
+|Pour la 1ere partie, le joueur qui commence en premier est choisi aléatoirement. Il a la possibilité de placer son     |
+|sybole où il veut sur le plateau. Pour cela, il doit entrer la lettre correspondant à la colone puis le chiffre        |
+|correspondant à la ligne dans la zone de saisie (qui se trouve juste après le ">>") (voir figuré 1). Si la saisie      |
+|est mauvaise ou que le placement est deja pris, le système m'indiquera et vous devrait recommencer l'opération.        |
+|                                                                                                                       |
+|Une fois votre tour jouer, c'est au tour du second joueur. Pour savoir qui doit jouer, il suffit de regarder la ligne  |
+|la plus haute de l'affichage qui indique le joueur qui doit jouer ainsi que le symbole qui le correspond.              |
+|Une fois la partie terminé, si le un des deux joueurs a réussi à alligner ces 3 symboles, alors il reçoit 100 points.  |
+|                                                                                                                       |
+|Si le jeu se finit par un match nul alors aucun point ne sera distrubué. Après cela, vous pouvez jouer ou retourner au |
+|menu du jeu. Si vous choisissez de rejouer, alors, le vainceur commancera.                                             |
+|                                                                                                                       |
+|figuré 1 :                                                                                                             |
+|  A B C                                                                                                                |
+|1 _|_|_                                                                                                                |
+|2 _|_|_                                                                                                                |   
+|3 _|_|_                                                                                                                |
+|exemple de placement : A1, B3, c2, a2 (vous n'etes pas obligé de mettre des majuscules aus lettres)                    |
+|                                                                                                                       |
++-----------------------------------------------------------------------------------------------------------------------+
