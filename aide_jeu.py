@@ -1,7 +1,7 @@
 # Créé par henzo, le 07/11/2024 avec Python 3.7 en UTF-8
 
-from os.path import exists
-from os import system
+from os.path import exists # systeme
+from os import system # systeme
 
 def aide(chemin_aide:str):
     """

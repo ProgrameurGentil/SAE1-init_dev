@@ -1,13 +1,21 @@
-# Fonction qui génère une chaîne de caractères représentant les allumettes restantes
+import os
+
 def nb_al(allumettes: int) -> str:
+    """
+    Fonction qui génère une chaîne de caractères représentant les allumettes restantes
+    entree : un entier correspondant au nb d'allumettes
+    sortie : une chaine de caracteres
+    """
     resultat: str
     resultat = '|' * allumettes  # Crée une chaîne avec autant de "|" que d'allumettes restantes
     return resultat
 
-
-# Fonction principale du jeu
 def allumettes(ScoreJ1:int, ScoreJ2:int)->tuple:
-    ##global ScoreJ1, ScoreJ2  # Variables globales pour suivre les scores des joueurs
+    """
+    Fonction principale du jeu
+    entree : 2 entiers qui correspond aux scores des joueurs
+    sortie : un tuple avec en premiere position le nouveau score du joueur 1 et en deuxieme position le nouveau score du joueur 2
+    """
     nb_allumettes: int  # Nombre d'allumettes restantes dans le jeu
     Joueur: int  # Indique le joueur en cours (1 ou 2)
     decr_nb_al: int  # Nombre d'allumettes à retirer
@@ -23,12 +31,13 @@ def allumettes(ScoreJ1:int, ScoreJ2:int)->tuple:
 
     # Boucle principale du jeu, qui continue jusqu'à ce qu'il n'y ait plus d'allumettes
     while nb_allumettes != 0:
+        os.system("cls")
         if Joueur == 1:
             Sortie = True  # Variable pour gérer la fin du tour
             print(nb_al(nb_allumettes))  # Affiche les allumettes restantes
             print(f"Il reste {nb_allumettes} allumettes")
             decr_nb_al = int(input("Joueur 1, combien d'allumettes voulez-vous retirer ? (1-3)  "))
-            
+
             # Validation de l'entrée pour s'assurer que le joueur retire 1 à 3 allumettes
             while decr_nb_al < 1 or decr_nb_al > 3:
                 print("Erreur de saisie, veuillez réessayer")
@@ -112,5 +121,6 @@ def allumettes(ScoreJ1:int, ScoreJ2:int)->tuple:
                             ScoreJ1 += 50
                         Sortie = False
             Joueur = 1  # Passe au joueur 1
+
 
     return ScoreJ1, ScoreJ2  # Retourne les scores finaux des deux joueurs
