@@ -183,7 +183,7 @@ def saisie_placement(plateau:List[List[str]])->str:
         os.system("cls")
         affichage(plateau)
         print("Erreur d'entrée : le placement doit etre de la forme nb+chiffre (ex: A1, B3, C2)")
-        position = input("où voulez-vous vous placer ? (col, lig => lettre+chiffre)\n>>").upper()
+        position = input("où voulez-vous vous placer ? (col, lig => lettre+chiffre)\n>> ").upper()
 
     return position
 
@@ -206,9 +206,9 @@ def verif_remplissage(plateau:List[List[str]])->bool:
     j = 0
 
     res = True
-    while i < len(plateau) - 1 and res:
+    while i < len(plateau) and res:
         j = 0
-        while j < len(plateau) - 1 and res:
+        while j < len(plateau) and res:
             if plateau[i][j] == '': # si une case n'est pas remplie
                 res = False
             j = j + 1
@@ -239,6 +239,7 @@ def morpion(score_j1:int, score_j2:int)->tuple:
 
     symbole_joueur = ['O', 'X']
     joueur_gagnant = -1
+
     while jouer:
         os.system("cls")
         plateau = [['','',''],
@@ -249,7 +250,7 @@ def morpion(score_j1:int, score_j2:int)->tuple:
             joueur_gagnant = randint(1,2)
         joueur_jouant = joueur_gagnant
 
-        while not verif_morpion(plateau) and verif_remplissage(plateau):
+        while not verif_morpion(plateau) and not verif_remplissage(plateau):
             os.system("cls")
             print(f"Joueur {joueur_jouant}, à vous de jouer !! (Vous etes {symbole_joueur[joueur_jouant - 1]})") # mettre le symbole correspondant
             affichage(plateau)
@@ -260,18 +261,21 @@ def morpion(score_j1:int, score_j2:int)->tuple:
                 os.system("cls")
                 affichage(plateau)
                 print("Ah... je crois que la place est deja prise...")
-                placement = saisie_placement(placement)
+                placement = saisie_placement(plateau)
 
             if joueur_jouant == 1:
                 joueur_jouant = 2
             else:
                 joueur_jouant = 1
 
+
         if verif_remplissage(plateau):
             os.system("cls")
             affichage(plateau)
             print("Stoooopp !! Egalité !")
         else:
+            os.system("cls")
+            affichage(plateau)
             joueur_gagnant = symbole_joueur.index(symbole_gagnant_morpion(plateau)) + 1
             print(f"Bravo joueur {joueur_gagnant}, tu as gagné 100 pnts !!")
 
@@ -289,13 +293,15 @@ def morpion(score_j1:int, score_j2:int)->tuple:
     return score_j1, score_j2
 
 
-##plateau =     [['o','',''],
-##               ['','x',''],
-##               ['','','o']]
+# debug
+##
+##plateau =     [['o','','x'],
+##               ['x','x','o'],
+##               ['o','','']]
 ##
 ##affichage(plateau)
 
 ##plateau = [['X', 'O', 'X'], ['', 'O', ''], ['X', 'X', 'O']]
 ##print(verif_remplissage(plateau))
 
-##morpion()
+##morpion(0,0)

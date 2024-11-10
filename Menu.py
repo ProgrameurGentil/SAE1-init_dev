@@ -25,7 +25,7 @@ def affichage_nb_score(n_joueur : int, l_score:List[int], nom_jeu:str):
     l_score_rang = trie_score(l_score)
 
     print(f"Voici la liste des scores dans l'orde decroissant du joueur {n_joueur} dans le jeu {nom_jeu}: ")
-    for i in rang(len(l_score_rang)):
+    for i in range(len(l_score_rang)):
         print(f"{i+1} Position : partie n°{l_score_rang[i].n_partie} avec {l_score_rang[i].valeur} pnts")
     print()
 
@@ -64,14 +64,16 @@ def menu(scores_j1:Scores_joueur, scores_j2:Scores_joueur):
 
 def sous_menu(nom_jeu:str, fonc_jeu:Function, fonc_aide:Procedure, scores_j1:Scores_joueur, scores_j2:Scores_joueur):
     """
-    Procedure affichant le sous menu. Possibilite de jouer, demander de l'aide et de quitter
-    Entree : nom_jeu   : chaine de caractere representant le nom du jeu choisi
+    procedure affichant le sous menu. Possibilite de jouer, demander de l'aide et de quitter
+
+    entree : nom_jeu   : chaine de caractere representant le nom du jeu choisi
              fonc_jeu  : procedure du jeu choisi
              fonc_aide : procedure d'aide pour la comprehention du jeu
              scores_j1 & scores_j2 : stucture Scores_joueur du joueur 1 et 2
     """
     null : str
     choix : int
+    scores : tuple
 
     choix = 0 # initilisation de la variable choix
     while choix != 4: # tant que le choix n'est pas de quitter le sous menu du jeu choisi
@@ -87,7 +89,9 @@ def sous_menu(nom_jeu:str, fonc_jeu:Function, fonc_aide:Procedure, scores_j1:Sco
             print("Erreur : le choix n'est pas valide.")
 
         if choix == 1:
-            fonc_jeu(0, 0)
+            scores = fonc_jeu(0, 0)
+            score_update(nom_jeu, scores_j1, scores[0])
+            score_update(nom_jeu, scores_j2, scores[1])
 
         elif choix == 2:
             fonc_aide()
@@ -95,6 +99,6 @@ def sous_menu(nom_jeu:str, fonc_jeu:Function, fonc_aide:Procedure, scores_j1:Sco
         elif choix == 3:
             os.system("cls")
             affichage_nb_score(scores_j1.n_joueur, get_score(nom_jeu, scores_j1), nom_jeu)
-            affichage_nb_score(scores_j1.n_joueur, get_score(nom_jeu, scores_j1), nom_jeu)
+            affichage_nb_score(scores_j2.n_joueur, get_score(nom_jeu, scores_j2), nom_jeu)
             null = input("\n(taper sur entree pour continuer...)")
             os.system("cls")

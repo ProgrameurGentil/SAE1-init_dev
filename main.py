@@ -18,5 +18,6 @@ if __name__ == '__main__':
     structure_joueur1 = initialisation_score(1, mat_pnts_j1[0], mat_pnts_j1[1], mat_pnts_j1[2])
     structure_joueur2 = initialisation_score(2, mat_pnts_j2[0], mat_pnts_j2[1], mat_pnts_j2[2])
 
+    os.system("cls")
     menu(structure_joueur1, structure_joueur2) # lancement du menu
     os.system("cls")

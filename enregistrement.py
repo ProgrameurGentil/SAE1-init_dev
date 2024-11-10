@@ -24,7 +24,7 @@ def lecture()->tuple:
         with open(f'{os.getcwd()}/sauvegarde_score.bu', 'rb') as sauvgarde:
             liste_score = list(pickle.load(sauvgarde))
 
-        if len(a) != 2 or len(a[0]) != 3 or len(a[1]) != 3:
+        if len(liste_score) != 2 or len(liste_score[0]) != 3 or len(liste_score[1]) != 3:
             liste_score  = [[[], [], []], [[], [], []]]
 
     return liste_score
