@@ -7,7 +7,7 @@ def points(lim : int, nombreDeCoups : int) -> int:
 
 
 
-def Devinette(ScoreJ1 : int, ScoreJ2 : int):
+def Devinette(ScoreJ1 : int, ScoreJ2 : int)->tuple:
     nombre : int
     limit : int
     Joueur : int
