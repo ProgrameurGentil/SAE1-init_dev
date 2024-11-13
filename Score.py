@@ -79,7 +79,7 @@ def get_last_score(jeu:str, scores_joueur:Scores_joueur)->int:
 
     jeu = jeu.lower()
 
-    assert jeu == "allumettes" or jeu == "morpion" or jeu == "devienette" # verification du jeu
+    assert jeu == "allumettes" or jeu == "morpion" or jeu == "devinette" # verification du jeu
 
     if jeu == "allumettes" and len(scores_joueur.liste_score_allumettes) > 0:
         score = scores_joueur.liste_score_allumettes[-1]
@@ -103,7 +103,7 @@ def get_score(jeu:str, scores_joueur:Scores_joueur)->List[int]:
 
     jeu = jeu.lower()
 
-    assert jeu == "allumettes" or jeu == "morpion" or jeu == "devienette" # verification du jeu
+    assert jeu == "allumettes" or jeu == "morpion" or jeu == "devinette" # verification du jeu
 
     if jeu == "allumettes" and len(scores_joueur.liste_score_allumettes) > 0:
         l_score = scores_joueur.liste_score_allumettes

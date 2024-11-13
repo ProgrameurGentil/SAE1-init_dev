@@ -7,6 +7,8 @@ from io import TextIOWrapper
 # Les fichiers textes (.txt) doivent etre dans le meme repertoire que le script
 # pour fonctionner.
 
+# taille minimum pour la fenetre : Colonnes : 125, Lignes : 30
+
 def aide(chemin_aide:str):
     """
     procedure qui affiche l'aide des jeux en fonction du fichier d'aide mis en parametre
@@ -57,4 +59,4 @@ def aide_devinette():
     aide(chemin_acces)
 
 # debug
-aide_morpion()
+##aide_morpion()

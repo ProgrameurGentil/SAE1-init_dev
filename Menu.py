@@ -56,7 +56,7 @@ def menu(scores_j1:Scores_joueur, scores_j2:Scores_joueur):
 
         if choix == 1:
             print("jeu 1")
-            sous_menu("Devinette", devinette, aide_devinette, scores_j1, scores_j2)
+            sous_menu("Devinette", devienette, aide_devinette, scores_j1, scores_j2)
         elif choix == 2:
             print("jeu 2")
             sous_menu("Allumettes", allumettes, aide_allumettes, scores_j1, scores_j2)
