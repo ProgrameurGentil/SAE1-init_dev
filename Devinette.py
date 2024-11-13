@@ -29,7 +29,10 @@ def Devinette(ScoreJ1: int, ScoreJ2: int):
     # Paramétrage selon le joueur choisi
     if joueur == 1:
         limit = int(input("Joueur 1, veuillez choisir la limite maximum  "))  # Limite maximum pour le nombre à deviner
+        while limit < 1:
+            print("Erreur de syntaxe, la limite est inférieur à 1")
         nb_a_faire_dev = int(input("Joueur 1, veuillez choisir un nombre à faire deviner  "))
+
         os.system('cls')  # Nettoie l’écran (sous Windows)
 
         # Validation pour s'assurer que le nombre à deviner est dans les limites
@@ -105,6 +108,8 @@ def Devinette(ScoreJ1: int, ScoreJ2: int):
 
     elif joueur == 2:  # Cas similaire mais pour le joueur 2 qui choisit le nombre et la limite
         limit = int(input("Joueur 2, veuillez choisir la limite maximum  "))
+        while limit < 1:
+            print("Erreur de syntaxe, la limite est inférieur à 1")
         nb_a_faire_dev = int(input("Joueur 2, veuillez choisir un nombre à faire deviner  "))
         os.system('cls')
 
@@ -180,5 +185,4 @@ def Devinette(ScoreJ1: int, ScoreJ2: int):
 
     # Affiche les scores finaux
     print(f"Le score du joueur 1 est {ScoreJ1} et le score du joueur 2 est {ScoreJ2}")
-    return ScoreJ1, ScoreJ2  # Retourne les scores finaux
-Devinette(0,0)
+    return ScoreJ1, ScoreJ2  # Retourne les scores finaux*
