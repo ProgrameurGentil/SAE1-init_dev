@@ -1,5 +1,13 @@
 # Créé par henzo, le 10/11/2024 avec Python 3.7 en UTF-8
-
+"""
+d'empendance :
+ typing
+ os
+ io
+ pickle
+ pathlib
+ random
+"""
 from enregistrement import sauvegarde, chargement_nb_pnts_j1, chargement_nb_pnts_j2 # sauvegarde et chargement des donnees
 from Score import Scores_joueur, initialisation_score, score_update, get_last_score, get_score # gestion des scores
 from Menu import menu # menu principal

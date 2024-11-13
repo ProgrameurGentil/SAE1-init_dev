@@ -36,7 +36,7 @@ def ecriture(score:tuple):
     entree : un tuple (liste des nombres de points du joueur 1 , liste des nombres de points du joueur 2)
     """
     f1 : pickle.io.BufferedWriter
-    print(os.getcwd())
+
     with open(f'{os.getcwd()}/sauvegarde_score.bu', 'wb') as f1:
         pickle.dump(score, f1)
 

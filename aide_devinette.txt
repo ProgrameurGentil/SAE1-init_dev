@@ -1,0 +1,19 @@
+    __________________________________
+   /                                  \
++--| aide pour le jeu de la devinette |-----------------------------------------------------------------------------------+
+|  \__________________________________/                                                                                   |
+|                                                                                                                         |
+|But:                                                                                                                     |
+|Le but de ce jeu est deviné le chiffre que le joueur adverse à choisi en moins de demande possible.                      |
+|                                                                                                                         |
+|Règles:                                                                                                                  |
+|Dans ce jeu, vous devez à chaque partie choisir qui commence. Une fois cela fait, vous devez choisir la limite maximum   |
+|puis le nombre à deviner qui doit être entre 0 exclut et cette limite inclus. Après cela fait, le jeu peu commencer !!   |
+|Apres cela, l'autre joueur doit deviner quel est le nombre mystère mais faite attention, un nombre de coup limite est    |
+|imposé. Si vous le dépasser, vous ne gagnerai plus de point.                                                             |
+|A la fin de chaque tour, le joueur faisant deviner doit dire si la tentative est supérieur, inferieur ou égal au nombre à|
+|trouver (il doit le spécifier dans la zone de saisie par +, - ou =). Gard aux mensonges !                                |
+|Enfin, si le joueur cherchant trouve le nombre mystère dans le nombre de coup imparti, alors il gagnera des points qui   |
+|varierons en fonction du nombre d'essaie. 					Bonne chance !                            |
+|                                                                                                                         |
++-------------------------------------------------------------------------------------------------------------------------+

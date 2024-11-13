@@ -6,12 +6,12 @@
 |But:                                                                                                                     |
 |Le but de ce jeu est de ne pas être le dernier à retirer une allumette. Sinon c'est perdu !                              |
 |                                                                                                                         |
-|Regles:                                                                                                                  |
+|Règles:                                                                                                                  |
 |Dans ce jeu, vous devez à chaque partie choisir qui commence. Une fois cela fait, la partie peut débuter. Sur la         |
-|premiere ligne, vous pouvez voir de maniere graphique, les allumettes restantes (symbolisé par "|"). Sur la ligne juste  |
-|en dessous, vous pouvez voir le nombre d'allumettes restantes cette fois écrit avec de chiffres. Enfin sur la derniere   |
-|ligne, se trouve la ligne de saisie avec au debut, le numéro du joueur qui doit jouer. Il vous suffit d'entrer un        |
-|chiffre entre 1 et 3. Si la saisie est mauvaise, le systeme vous le dira. Si il reste moins de 3 allumettes alors vous   |
+|première ligne, vous pouvez voir de manière graphique, les allumettes restantes (symbolisé par "|"). Sur la ligne juste  |
+|en dessous, vous pouvez voir le nombre d'allumettes restantes cette fois écrit avec de chiffres. Enfin sur la dernière   |
+|ligne, se trouve la ligne de saisie avec au début, le numéro du joueur qui doit jouer. Il vous suffit d'entrer un        |
+|chiffre entre 1 et 3. Si la saisie est mauvaise, le système vous le dira. Si il reste moins de 3 allumettes alors vous   |
 |ne pourrai rentrer un nombre plus grand 2.                                                                               |
 |Quand vous gagnez, alors vous recevez 50 points.                                                                         |
 |                                                                                                                         |

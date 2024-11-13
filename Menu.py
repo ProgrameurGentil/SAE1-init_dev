@@ -25,8 +25,11 @@ def affichage_nb_score(n_joueur : int, l_score:List[int], nom_jeu:str):
     l_score_rang = trie_score(l_score)
 
     print(f"Voici la liste des scores dans l'orde decroissant du joueur {n_joueur} dans le jeu {nom_jeu}: ")
-    for i in range(len(l_score_rang)):
-        print(f"{i+1} Position : partie n°{l_score_rang[i].n_partie} avec {l_score_rang[i].valeur} pnts")
+    if len(l_score_rang) == 0: # si il n'y a pas de score enregistre
+        print("Ah... Vous n'avez pas encore de points dans ce jeu...")
+    else:
+        for i in range(len(l_score_rang)):
+            print(f"{i+1} Position : partie n°{l_score_rang[i].n_partie} avec {l_score_rang[i].valeur} pnts")
     print()
 
 def menu(scores_j1:Scores_joueur, scores_j2:Scores_joueur):
