@@ -42,19 +42,42 @@ def Devinette(ScoreJ1: int, ScoreJ2: int):
             print("Le nombre de coups max est:  ", 1 + int(log2(limit)))  # Affiche le nombre de coups maximum
             nombre = int(input(f"Joueur 2, veuillez choisir un nombre, la limite est {limit} et ton nombre d'essai actuel est {nb_coup}   "))
             nb_coup += 1  # Incrémente le compteur de coups
-
+            os.system('cls')
             # Demande si le nombre deviné est plus grand, plus petit, ou égal
             reponse = str(input(f"Est-ce que le nombre {nombre} est plus grand (+), plus petit (-), ou égal (=) au nombre choisi ?  "))
+
+
             if reponse == '+':
                 if nombre > nb_a_faire_dev:
                     print("c'est moins")
                 else:
-                    print("Menteur")  # Indique une réponse incorrecte intentionnelle
+                    print("Menteur, Le Joueur 1 perd 5 points")  # Indique une réponse incorrecte intentionnelle
+                    if nombre < nb_a_faire_dev:
+                        print("C'est plus")
+                    if nombre == nb_a_faire_dev:
+                        print("Le joueur 2 a gagné")
+                        ScoreJ2 += 50
+                        sortie1 = False
+                    ScoreJ1 = ScoreJ1 - 5
+
+
+
+
             elif reponse == '-':
                 if nombre < nb_a_faire_dev:
                     print("c'est plus")
                 else:
-                    print("Menteur")
+                    print("Menteur, Le Joueur 1 perd 5 points")
+                    if nombre < nb_a_faire_dev:
+                        print("C'est plus")
+                    elif nombre == nb_a_faire_dev:
+                        print("Le joueur 2 a gagné")
+                        ScoreJ2 += 50
+                        sortie1 = False
+                    ScoreJ1 = ScoreJ1 - 5
+
+
+
             elif reponse == '=':
                 if nb_a_faire_dev == nombre:  # Le joueur a deviné correctement
                     # Vérifie si le nombre de coups est dans la limite
@@ -65,7 +88,10 @@ def Devinette(ScoreJ1: int, ScoreJ2: int):
                         sortie1 = False  # Termine la boucle principale
                 else:
                     print("Menteur")
-            elif nb_coup == 1 + int(log2(limit)):  # Le joueur dépasse le nombre limite de coups
+
+
+
+            if nb_coup == 1 + int(log2(limit)):  # Le joueur dépasse le nombre limite de coups
                 print("Vous avez perdu, vous ne gagnerez pas de point. Voulez-vous continuer pour trouver le nombre ?  (o/n)")
                 reponse2 = str(input())
                 if reponse2 == 'o':
@@ -75,30 +101,51 @@ def Devinette(ScoreJ1: int, ScoreJ2: int):
                     ScoreJ1 += 50
                     sortie1 = False
 
+
+
     elif joueur == 2:  # Cas similaire mais pour le joueur 2 qui choisit le nombre et la limite
         limit = int(input("Joueur 2, veuillez choisir la limite maximum  "))
         nb_a_faire_dev = int(input("Joueur 2, veuillez choisir un nombre à faire deviner  "))
         os.system('cls')
+
         while nb_a_faire_dev > limit or nb_a_faire_dev < 1:
             nb_a_faire_dev = int(input("Erreur de saisie, veuillez rentrer un nouveau nombre à faire deviner  "))
             os.system('cls')
 
+
+
         while sortie1:
+
             print("Le nombre de coups max est:  ", 1 + int(log2(limit)))
             nombre = int(input(f"Joueur 1, veuillez choisir un nombre, la limite est {limit} et ton nombre d'essai actuel est {nb_coup}   "))
             nb_coup += 1
+            os.system('cls')
             reponse = str(input(f"Est-ce que le nombre {nombre} est plus grand (+), plus petit (-), ou égal (=) au nombre choisi ?  "))
 
             if reponse == '+':
                 if nombre > nb_a_faire_dev:
                     print("c'est moins")
                 else:
-                    print("Menteur")
+                    print("Menteur, le Joueur 2 perd 5 points")
+                    if nombre < nb_a_faire_dev:
+                        print("C'est plus")
+                    elif nombre == nb_a_faire_dev:
+                        print("Le joueur 2 a gagné")
+                        ScoreJ2 += 50 
+                        sortie1 = False
+                    ScoreJ2 = ScoreJ2 - 5
+
+
+
             elif reponse == '-':
                 if nombre < nb_a_faire_dev:
                     print("c'est plus")
                 else:
                     print("Menteur")
+
+
+
+
             elif reponse == '=':
                 if nb_a_faire_dev == nombre:
                     if nb_coup > 1 + int(log2(limit)):
@@ -108,18 +155,30 @@ def Devinette(ScoreJ1: int, ScoreJ2: int):
                     else:
                         ScoreJ1 = points(limit, nb_coup)
                         sortie1 = False
+
+
+
                 else:
-                    print("Menteur")
-            elif nb_coup == 1 + int(log2(limit)):
+                    print("Menteur, le Joueur 2 perd 5 points")
+                    if nombre < nb_a_faire_dev:
+                        print("C'est plus")
+                    elif nombre > nb_a_faire_dev:
+                        print("C'est moins")
+                    ScoreJ2 = ScoreJ2 - 5
+
+
+
+            if nb_coup == 1 + int(log2(limit)):
                 print("Vous avez perdu, vous ne gagnerez pas de point. Voulez-vous continuer pour trouver le nombre ?  (o/n)")
                 reponse2 = str(input())
                 if reponse2 == 'o':
                     print("Ok, comme vous voulez")
                 elif reponse2 == 'n':
                     print("Le joueur 2 a gagné")
-                    ScoreJ2 = ScoreJ1 + 50
+                    ScoreJ2 = ScoreJ2 + 50 
                     sortie1 = False
 
     # Affiche les scores finaux
     print(f"Le score du joueur 1 est {ScoreJ1} et le score du joueur 2 est {ScoreJ2}")
     return ScoreJ1, ScoreJ2  # Retourne les scores finaux
+Devinette(0,0)
