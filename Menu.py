@@ -84,7 +84,7 @@ def sous_menu(nom_jeu:str, fonc_jeu:Function, fonc_aide:Procedure, scores_j1:Sco
         print("1) Jouer")
         print("2) Aide")
         print("3) Scores precedent")
-        print("4) Quitter")
+        print("4) Quitter et revenir au menu principal")
         choix = int(input(">> "))
         os.system("cls")
 
