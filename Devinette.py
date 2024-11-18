@@ -48,7 +48,7 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
         os.system('cls')  # Nettoie l’écran (sous Windows)
 
         # Validation pour s'assurer que le nombre à deviner est dans les limites
-        while nb_a_faire_dev < limit or nb_a_faire_dev < 1:
+        while nb_a_faire_dev > limit or nb_a_faire_dev < 1:
             nb_a_faire_dev = int(input("Erreur de saisie, veuillez rentrer un nouveau nombre à faire deviner  "))
             os.system('cls')
 
