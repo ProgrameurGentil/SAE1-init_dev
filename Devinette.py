@@ -30,7 +30,8 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
     sortie1: bool = True  # Flag pour contrôler la boucle principale
     reponse: str
     null : str
-
+    echec : bool
+    echec = False
     # Choix du joueur qui va entrer le nombre à deviner et la limite
     joueur = int(input("Choisissez quel joueur va entrer un nombre et une limite (1/2) "))
     while joueur > 2 or joueur < 1:  # Validation du choix de joueur
@@ -63,55 +64,101 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
 
 
             if reponse == '+':
-                if nombre > nb_a_faire_dev:
-                    print("c'est moins")
+                if echec == False:
+                    if nombre > nb_a_faire_dev:
+                        print("c'est moins")
+                    else:
+                        print("Menteur, Le Joueur 1 perd 5 points")  # Indique une réponse incorrecte intentionnelle
+                        ScoreJ1 = ScoreJ1 - 5
+                        if nombre < nb_a_faire_dev:
+                            print("C'est plus")
+                        if nombre == nb_a_faire_dev:
+                            if echec == False:
+                                print("Le joueur 2 a gagné")
+                                ScoreJ2 = ScoreJ2 + points(limit, nb_coup)
+                                sortie1 = False
                 else:
-                    print("Menteur, Le Joueur 1 perd 5 points")  # Indique une réponse incorrecte intentionnelle
-                    if nombre < nb_a_faire_dev:
-                        print("C'est plus")
-                    if nombre == nb_a_faire_dev:
-                        print("Le joueur 2 a gagné")
-                        ScoreJ2 = ScoreJ2 + points(limit, nb_coup)
-                        sortie1 = False
-                    ScoreJ1 = ScoreJ1 - 5
+                    if nombre > nb_a_faire_dev:
+                        print("c'est moins")
+                    else:
+                        print("Menteur")  # Indique une réponse incorrecte intentionnelle
+                        if nombre < nb_a_faire_dev:
+                            print("C'est plus")
+                        if nombre == nb_a_faire_dev:
+                            print("Le joueur 2 a quand même perdu")
+                            ScoreJ1 += 50
+                            Sortie1 == False
+                
 
 
 
 
             elif reponse == '-':
-                if nombre < nb_a_faire_dev:
-                    print("c'est plus")
-                else:
-                    print("Menteur, Le Joueur 1 perd 5 points")
+                if echec == False:
                     if nombre < nb_a_faire_dev:
-                        print("C'est plus")
-                    elif nombre == nb_a_faire_dev:
-                        print("Le joueur 2 a gagné")
-                        ScoreJ2 = ScoreJ2 + points(limit, nb_coup)
-                        sortie1 = False
-                    ScoreJ1 = ScoreJ1 - 5
+                        print("c'est plus")
+                    else:
+                        print("Menteur, Le Joueur 1 perd 5 points")
+                        ScoreJ1 = ScoreJ1 - 5
+                        if nombre < nb_a_faire_dev:
+                            print("C'est plus")
+                        elif nombre == nb_a_faire_dev:
+                            print("Le joueur 2 a gagné")
+                            ScoreJ2 = ScoreJ2 + points(limit, nb_coup)
+                            sortie1 = False
+                else:
+                    if nombre < nb_a_faire_dev:
+                        print("c'est plus")
+                    else:
+                        print("Menteur")
+                        if nombre < nb_a_faire_dev:
+                            print("C'est plus")
+                        elif nombre == nb_a_faire_dev:
+                            print("Le joueur 2 a quand même perdu")
+                            ScoreJ1 += 50
+                            Sortie1 == False
+                        
 
 
 
             elif reponse == '=':
-                if nb_a_faire_dev == nombre:  # Le joueur a deviné correctement
-                    # Vérifie si le nombre de coups est dans la limite
-                    if nb_coup > 1 + int(log2(limit)):
-                        print("Dommage, vous avez dépassé le nombre limite de coups pour gagner des points, vous avez donc perdu")
+                if echec == False:
+                    if nb_a_faire_dev == nombre:  # Le joueur a deviné correctement
+                        # Vérifie si le nombre de coups est dans la limite
+                        if nb_coup > 1 + int(log2(limit)):
+                            print("Dommage, vous avez dépassé le nombre limite de coups pour gagner des points, vous avez donc perdu")
+                            ScoreJ1 += 50
+                        else:
+                            ScoreJ2 = ScoreJ2 + points(limit, nb_coup)  # Calcule et attribue les points
+                            sortie1 = False  # Termine la boucle principale
                     else:
-                        ScoreJ2 = ScoreJ2 + points(limit, nb_coup)  # Calcule et attribue les points
-                        sortie1 = False  # Termine la boucle principale
+                        print("Menteur, le joueur 1 perd 5 points")
+                        ScoreJ1 = ScoreJ1 - 5
+                        if nombre < nb_a_faire_dev:
+                            print("C'est plus")
+                        elif nombre > nb_a_faire_dev:
+                            print("C'est moins")
                 else:
-                    print("Menteur")
-                    if nombre < nb_a_faire_dev:
-                        print("C'est plus")
-                    elif nombre > nb_a_faire_dev:
-                        print("C'est moins")
-                    ScoreJ1 = ScoreJ1 - 5
+                    if nb_a_faire_dev == nombre:  # Le joueur a deviné correctement
+                        # Vérifie si le nombre de coups est dans la limite
+                        if nb_coup > 1 + int(log2(limit)):
+                            print("Dommage, vous avez dépassé le nombre limite de coups pour gagner des points, vous avez donc perdu")
+                            ScoreJ1 += 50
+                        else:
+                            ScoreJ2 = ScoreJ2 + points(limit, nb_coup)  # Calcule et attribue les points
+                            sortie1 = False  # Termine la boucle principale
+                    else:
+                        print("Menteur")
+                        if nombre < nb_a_faire_dev:
+                            print("C'est plus")
+                        elif nombre > nb_a_faire_dev:
+                            print("C'est moins")
+                    
 
 
 
             if nb_coup == 1 + int(log2(limit)):  # Le joueur dépasse le nombre limite de coups
+                echec == True
                 print("Vous avez perdu, vous ne gagnerez pas de point. Voulez-vous continuer pour trouver le nombre ?  (o/n)")
                 reponse2 = str(input())
                 if reponse2 == 'o':
@@ -145,56 +192,103 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
             reponse = str(input(f"Est-ce que le nombre {nombre} est plus grand (+), plus petit (-), ou égal (=) au nombre choisi ?  "))
 
             if reponse == '+':
-                if nombre > nb_a_faire_dev:
-                    print("c'est moins")
-                else:
-                    print("Menteur, le Joueur 2 perd 5 points")
-                    if nombre < nb_a_faire_dev:
-                        print("C'est plus")
-                    elif nombre == nb_a_faire_dev:
-                        print("Le joueur 2 a gagné")
-                        ScoreJ1 = ScoreJ1 + points(limit, nb_coup)
-                        sortie1 = False
-                    ScoreJ2 = ScoreJ2 - 5
-
-
-
-            elif reponse == '-':
-                if nombre < nb_a_faire_dev:
-                    print("c'est plus")
-                else:
-                    print("Menteur")
-
-
-
-
-            elif reponse == '=':
-                if nb_a_faire_dev == nombre:
-                    if nb_coup > 1 + int(log2(limit)):
-                        print("Dommage, vous avez dépassé le nombre limite de coups pour gagner des points, vous avez donc perdu")
-                        ScoreJ2 = ScoreJ1 + 50
-                        sortie1 = False
+                if echec == False:
+                    if nombre > nb_a_faire_dev:
+                        print("c'est moins")
                     else:
-                        ScoreJ1 = ScoreJ1 + points(limit, nb_coup)
-                        sortie1 = False
-
-
-
+                        print("Menteur, le Joueur 2 perd 5 points")
+                        ScoreJ2 = ScoreJ2 - 5
+                        if nombre < nb_a_faire_dev:
+                            print("C'est plus")
+                        elif nombre == nb_a_faire_dev:
+                            print("Le joueur 2 a gagné")
+                            ScoreJ1 = ScoreJ1 + points(limit, nb_coup)
+                            sortie1 = False
                 else:
-                    print("Menteur, le Joueur 2 perd 5 points")
+                    if nombre > nb_a_faire_dev:
+                        print("c'est moins")
+                    else:
+                        print("Menteur")
+                        if nombre < nb_a_faire_dev:
+                            print("C'est plus")
+                        elif nombre == nb_a_faire_dev:
+                            print("Le joueur 2 a quand même perdu")
+                            ScoreJ2 += 50
+                            sortie1 = False
+                        
+
+
+
+             elif reponse == '-':
+                if echec == False:
                     if nombre < nb_a_faire_dev:
-                        print("C'est plus")
-                    elif nombre > nb_a_faire_dev:
-                        print("C'est moins")
-                    ScoreJ2 = ScoreJ2 - 5
+                        print("c'est plus")
+                    else:
+                        print("Menteur, Le Joueur 2 perd 5 points")
+                        ScoreJ2 = ScoreJ2 - 5
+                        if nombre < nb_a_faire_dev:
+                            print("C'est plus")
+                        elif nombre == nb_a_faire_dev:
+                            print("Le joueur 1 a gagné")
+                            ScoreJ1 = ScoreJ1 + points(limit, nb_coup)
+                            sortie1 = False
+                else:
+                    if nombre < nb_a_faire_dev:
+                        print("c'est plus")
+                    else:
+                        print("Menteur")
+                        if nombre < nb_a_faire_dev:
+                            print("C'est plus")
+                        elif nombre == nb_a_faire_dev:
+                            print("Le joueur 1 a quand même perdu")
+                            ScoreJ2 += 50
+                            Sortie1 == False
+
+            
+            elif reponse == '=':
+                if echec == False:
+                    if nb_a_faire_dev == nombre:
+                        if nb_coup > 1 + int(log2(limit)):
+                            print("Dommage, vous avez dépassé le nombre limite de coups pour gagner des points, vous avez donc perdu")
+                            ScoreJ1 += 50
+                            sortie1 = False
+                        else:
+                            ScoreJ1 = ScoreJ1 + points(limit, nb_coup)
+                            sortie1 = False
+    
+                    else:
+                        print("Menteur, le Joueur 2 perd 5 points")
+                        if nombre < nb_a_faire_dev:
+                            print("C'est plus")
+                        elif nombre > nb_a_faire_dev:
+                            print("C'est moins")
+                        ScoreJ2 = ScoreJ2 - 5
+                else:
+                    if nb_a_faire_dev == nombre:
+                        if nb_coup > 1 + int(log2(limit)):
+                            print("Dommage, vous avez dépassé le nombre limite de coups pour gagner des points, vous avez donc perdu")
+                            ScoreJ1 += 50
+                            sortie1 = False
+                        else:
+                            ScoreJ1 = ScoreJ1 + points(limit, nb_coup)
+                            sortie1 = False
+    
+                    else:
+                        print("Menteur")
+                        if nombre < nb_a_faire_dev:
+                            print("C'est plus")
+                        elif nombre > nb_a_faire_dev:
+                            print("C'est moins")
 
 
 
-            if nb_coup == 1 + int(log2(limit)):
+            if nb_coup => 1 + int(log2(limit)):
+            echec = True
                 print("Vous avez perdu, vous ne gagnerez pas de point. Voulez-vous continuer pour trouver le nombre ?  (o/n)")
                 reponse2 = str(input())
                 if reponse2 == 'o':
                     print("Ok, comme vous voulez")
+                    
                 elif reponse2 == 'n':
                     print("Le joueur 2 a gagné")
                     ScoreJ2 = ScoreJ2 + 50
