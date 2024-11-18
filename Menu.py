@@ -55,13 +55,10 @@ def menu(scores_j1:Scores_joueur, scores_j2:Scores_joueur):
             print("Erreur, le choix n'est pas valide")
 
         if choix == 1:
-            print("jeu 1")
             sous_menu("Devinette", devienette, aide_devinette, scores_j1, scores_j2)
         elif choix == 2:
-            print("jeu 2")
             sous_menu("Allumettes", allumettes, aide_allumettes, scores_j1, scores_j2)
         elif choix == 3:
-            print("jeu 3")
             sous_menu("Morpion", morpion, aide_morpion, scores_j1, scores_j2)
     sauvegarde(scores_j1, scores_j2)
 
