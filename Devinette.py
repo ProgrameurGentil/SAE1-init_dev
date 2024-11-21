@@ -71,9 +71,9 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
         while sortie1:
             print("Le nombre de coups max est:  ", 1 + int(log2(limit)))  # Affiche le nombre de coups maximum
             nombre = int(input(f"Joueur 2, veuillez choisir un nombre, la limite est {limit} et ton nombre d'essai actuel est {nb_coup}   "))
-            while nombre > limit:
+            while 0 > nombre > limit:
                 os.system('cls')
-                print(f"Erreur de saisie, le nombre {nombre} est plus grand que la limite : {limit}")
+                print(f"Erreur de saisie, le nombre {nombre} n'est pas inclu dans la limite : ]0 {limit}]")
                 nombre = int(input(f"Joueur 2, veuillez choisir un nombre, la limite est {limit} et ton nombre d'essai actuel est {nb_coup}   "))
 
             nb_coup += 1  # Incrémente le compteur de coups
@@ -211,9 +211,9 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
 
             print("Le nombre de coups max est:  ", 1 + int(log2(limit)))
             nombre = int(input(f"Joueur 1, veuillez choisir un nombre, la limite est {limit} et ton nombre d'essai actuel est {nb_coup}   "))
-            while nombre > limit:
+            while 0 > nombre > limit:
                 os.system('cls')
-                print(f"Erreur de saisie, le nombre {nombre} est plus grand que la limite : {limit}")
+                print(f"Erreur de saisie, le nombre {nombre} n'est pas inclu dans la limite : ]0 {limit}]")
                 nombre = int(input(f"Joueur 1, veuillez choisir un nombre, la limite est {limit} et ton nombre d'essai actuel est {nb_coup}   "))
             nb_coup += 1
             os.system('cls')
@@ -332,4 +332,4 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
     return ScoreJ1, ScoreJ2  # Retourne les scores finaux*
 
 #debug
-#Devinette(0,0)
+Devinette(0,0)
