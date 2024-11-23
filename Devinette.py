@@ -27,7 +27,7 @@ def points(lim: int, nombreDeCoups: int) -> int:
     return nb_point
 
 
-def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
+def Devinette(ScoreJ1: int, ScoreJ2: int, Joueur1 : str, Joueur2 : str)->tuple:
     """
     Fonction principale de la "Devinette" où un joueur doit deviner un nombre choisi par l'autre joueur
 
@@ -35,8 +35,6 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
     sortie : un tuple de deux entiers qui correspondent successivement aux scores du joueur 1 et du joueur 2
     """
     # Initialisation des variables
-    Joueur1 : str #Nom du joueur 1
-    Joueur2 : str #Nom du joueur 2
     nombre: int  # Nombre que le joueur doit deviner
     limit: int  # Limite maximale pour le nombre
     joueur: int  # Joueur qui choisit le nombre et la limite
@@ -49,8 +47,6 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
     echec : bool # Variable pour savoir si le joueur a dépasser le nombre de coups maximum
     echec = False # Le nombre de coups max n'a pas été atteint
     #Choix du nom des joueurs
-    Joueur1 = str(input("Quel est le nom du Joueur 1 ? \n >>")) #Le joueur 1 met son nom
-    Joueur2 = str(input("Quel est le nom du Joueur 2 ? \n >>")) #Le joueur 2 met son nom
     # Choix du joueur qui va entrer le nombre à deviner et la limite
     joueur = int(input("Choisissez quel joueur va entrer un nombre et une limite (1/2) "))
     while joueur > 2 or joueur < 1:  # Validation du choix de joueur
