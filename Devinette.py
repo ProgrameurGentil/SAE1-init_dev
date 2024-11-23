@@ -35,6 +35,8 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
     sortie : un tuple de deux entiers qui correspondent successivement aux scores du joueur 1 et du joueur 2
     """
     # Initialisation des variables
+    Joueur1 : str #Nom du joueur 1
+    Joueur2 : str #Nom du joueur 2
     nombre: int  # Nombre que le joueur doit deviner
     limit: int  # Limite maximale pour le nombre
     joueur: int  # Joueur qui choisit le nombre et la limite
@@ -46,6 +48,9 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
     null : str
     echec : bool
     echec = False
+    #Choix du nom des joueurs
+    Joueur1 = str(input("Quel est le nom du Joueur 1 ? \n >>"))
+    Joueur2 = str(input("Quel est le nom du Joueur 2 ? \n >>"))
     # Choix du joueur qui va entrer le nombre à deviner et la limite
     joueur = int(input("Choisissez quel joueur va entrer un nombre et une limite (1/2) "))
     while joueur > 2 or joueur < 1:  # Validation du choix de joueur
@@ -54,11 +59,11 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
 
     # Paramétrage selon le joueur choisi
     if joueur == 1:
-        limit = int(input("Joueur 1, veuillez choisir la limite maximum  "))  # Limite maximum pour le nombre à deviner
+        limit = int(input(f"{Joueur1}, veuillez choisir la limite maximum  "))  # Limite maximum pour le nombre à deviner
         while limit < 1:
             print("Erreur de syntaxe, la limite est inférieur à 1")
-            limit = int(input("Joueur 1, veuillez choisir la limite maximum  "))
-        nb_a_faire_dev = int(input("Joueur 1, veuillez choisir un nombre à faire deviner  "))
+            limit = int(input(f"{Joueur1}, veuillez choisir la limite maximum  "))
+        nb_a_faire_dev = int(input(f"{Joueur1}, veuillez choisir un nombre à faire deviner  "))
 
         os.system('cls')  # Nettoie l’écran (sous Windows)
 
@@ -70,11 +75,11 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
         # Boucle principale pour les tentatives de devinette
         while sortie1:
             print("Le nombre de coups max est:  ", 1 + int(log2(limit)))  # Affiche le nombre de coups maximum
-            nombre = int(input(f"Joueur 2, veuillez choisir un nombre, la limite est {limit} et ton nombre d'essai actuel est {nb_coup}   "))
+            nombre = int(input(f"{Joueur2}, veuillez choisir un nombre, la limite est {limit} et ton nombre d'essai actuel est {nb_coup}   "))
             while 0 > nombre > limit:
                 os.system('cls')
                 print(f"Erreur de saisie, le nombre {nombre} n'est pas inclu dans la limite : ]0 {limit}]")
-                nombre = int(input(f"Joueur 2, veuillez choisir un nombre, la limite est {limit} et ton nombre d'essai actuel est {nb_coup}   "))
+                nombre = int(input(f"{Joueur2}, veuillez choisir un nombre, la limite est {limit} et ton nombre d'essai actuel est {nb_coup}   "))
 
             nb_coup += 1  # Incrémente le compteur de coups
             os.system('cls')
@@ -87,12 +92,12 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
                     if nombre > nb_a_faire_dev:
                         print("c'est moins")
                     else:
-                        print("Menteur, Le Joueur 1 perd 5 points")  # Indique une réponse incorrecte intentionnelle
+                        print(f"Menteur, {Joueur1} perd 5 points")  # Indique une réponse incorrecte intentionnelle
                         ScoreJ1 = ScoreJ1 - 5
                         if nombre < nb_a_faire_dev:
                             print("C'est plus")
                         if nombre == nb_a_faire_dev:
-                            print("Le joueur 2 a gagné")
+                            print(f"{Joueur2} a gagné")
                             ScoreAjout = points(limit, nb_coup)
                             ScoreJ2 = ScoreJ2 + ScoreAjout
                             sortie1 = False
@@ -104,7 +109,7 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
                         if nombre < nb_a_faire_dev:
                             print("C'est plus")
                         if nombre == nb_a_faire_dev:
-                            print("Le joueur 2 a quand même perdu")
+                            print(f"{Joueur2} a quand même perdu")
                             ScoreJ1 += 50
                             sortie1 = False
 
@@ -117,12 +122,12 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
                     if nombre < nb_a_faire_dev:
                         print("c'est plus")
                     else:
-                        print("Menteur, Le Joueur 1 perd 5 points")
+                        print(f"Menteur, {Joueur1} perd 5 points")
                         ScoreJ1 = ScoreJ1 - 5
                         if nombre < nb_a_faire_dev:
                             print("C'est plus")
                         elif nombre == nb_a_faire_dev:
-                            print("Le joueur 2 a gagné")
+                            print(f"{Joueur2} a gagné")
                             ScoreAjout = points(limit, nb_coup)
                             ScoreJ2 = ScoreJ2 + ScoreAjout
                             sortie1 = False
@@ -134,7 +139,7 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
                         if nombre < nb_a_faire_dev:
                             print("C'est plus")
                         elif nombre == nb_a_faire_dev:
-                            print("Le joueur 2 a quand même perdu")
+                            print(f"{Joueur2} a quand même perdu")
                             ScoreJ1 += 50
                             sortie1 = False
 
@@ -154,7 +159,7 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
                             ScoreJ2 = ScoreJ2 + ScoreAjout  # Calcule et attribue les points
                             sortie1 = False  # Termine la boucle principale
                     else:
-                        print("Menteur, le joueur 1 perd 5 points")
+                        print(f"Menteur, {Joueur1} perd 5 points")
                         ScoreJ1 = ScoreJ1 - 5
                         if nombre < nb_a_faire_dev:
                             print("C'est plus")
@@ -188,17 +193,17 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
                 if reponse2 == 'o':
                     print("Ok, comme vous voulez")
                 elif reponse2 == 'n':
-                    print("Le joueur 1 a gagné")
+                    print(f"{Joueur1} a gagné")
                     ScoreJ1 += 50
                     sortie1 = False
 
 
 
     elif joueur == 2:  # Cas similaire mais pour le joueur 2 qui choisit le nombre et la limite
-        limit = int(input("Joueur 2, veuillez choisir la limite maximum  "))
+        limit = int(input(f"{Joueur2}, veuillez choisir la limite maximum  "))
         while limit < 1:
             print("Erreur de syntaxe, la limite est inférieur à 1")
-        nb_a_faire_dev = int(input("Joueur 2, veuillez choisir un nombre à faire deviner  "))
+        nb_a_faire_dev = int(input(f"{Joueur2}, veuillez choisir un nombre à faire deviner  "))
         os.system('cls')
 
         while nb_a_faire_dev > limit or nb_a_faire_dev < 1:
@@ -210,11 +215,11 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
         while sortie1:
 
             print("Le nombre de coups max est:  ", 1 + int(log2(limit)))
-            nombre = int(input(f"Joueur 1, veuillez choisir un nombre, la limite est {limit} et ton nombre d'essai actuel est {nb_coup}   "))
+            nombre = int(input(f"{Joueur1}, veuillez choisir un nombre, la limite est {limit} et ton nombre d'essai actuel est {nb_coup}   "))
             while 0 > nombre > limit:
                 os.system('cls')
                 print(f"Erreur de saisie, le nombre {nombre} n'est pas inclu dans la limite : ]0 {limit}]")
-                nombre = int(input(f"Joueur 1, veuillez choisir un nombre, la limite est {limit} et ton nombre d'essai actuel est {nb_coup}   "))
+                nombre = int(input(f"{Joueur1}, veuillez choisir un nombre, la limite est {limit} et ton nombre d'essai actuel est {nb_coup}   "))
             nb_coup += 1
             os.system('cls')
             reponse = str(input(f"Est-ce que le nombre {nombre} est plus grand (+), plus petit (-), ou égal (=) au nombre choisi ?  "))
@@ -224,12 +229,12 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
                     if nombre > nb_a_faire_dev:
                         print("c'est moins")
                     else:
-                        print("Menteur, le Joueur 2 perd 5 points")
+                        print(f"Menteur, {Joueur2} perd 5 points")
                         ScoreJ2 = ScoreJ2 - 5
                         if nombre < nb_a_faire_dev:
                             print("C'est plus")
                         elif nombre == nb_a_faire_dev:
-                            print("Le joueur 2 a gagné")
+                            print(f"{Joueur2} a gagné")
                             ScoreAjout = points(limit, nb_coup)
                             ScoreJ1 = ScoreJ1 + ScoreAjout
                             sortie1 = False
@@ -241,7 +246,7 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
                         if nombre < nb_a_faire_dev:
                             print("C'est plus")
                         elif nombre == nb_a_faire_dev:
-                            print("Le joueur 2 a quand même perdu")
+                            print(f"{Joueur2} a quand même perdu")
                             ScoreJ2 += 50
                             sortie1 = False
 
@@ -253,12 +258,12 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
                     if nombre < nb_a_faire_dev:
                         print("c'est plus")
                     else:
-                        print("Menteur, Le Joueur 2 perd 5 points")
+                        print(f"Menteur, {Joueur2} perd 5 points")
                         ScoreJ2 = ScoreJ2 - 5
                         if nombre < nb_a_faire_dev:
                             print("C'est plus")
                         elif nombre == nb_a_faire_dev:
-                            print("Le joueur 1 a gagné")
+                            print(f"{Joueur1} a gagné")
                             ScoreAjout = points(limit, nb_coup)
                             ScoreJ1 = ScoreJ1 + ScoreAjout
                             sortie1 = False
@@ -270,7 +275,7 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
                         if nombre < nb_a_faire_dev:
                             print("C'est plus")
                         elif nombre == nb_a_faire_dev:
-                            print("Le joueur 1 a quand même perdu")
+                            print(f"{Joueur1} a quand même perdu")
                             ScoreJ2 += 50
                             sortie1 = False
 
@@ -288,7 +293,7 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
                             sortie1 = False
 
                     else:
-                        print("Menteur, le Joueur 2 perd 5 points")
+                        print(f"Menteur, {Joueur2} perd 5 points")
                         if nombre < nb_a_faire_dev:
                             print("C'est plus")
                         elif nombre > nb_a_faire_dev:
@@ -322,12 +327,12 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
                     print("Ok, comme vous voulez")
 
                 elif reponse2 == 'n':
-                    print("Le joueur 2 a gagné")
+                    print(f"{Joueur2} a gagné")
                     ScoreJ2 = ScoreJ2 + 50
                     sortie1 = False
 
     # Affiche les scores finaux
-    print(f"Le score du joueur 1 est {ScoreJ1} et le score du joueur 2 est {ScoreJ2}")
+    print(f"Le score de {Joueur1} est {ScoreJ1} et le score de {Joueur2} est {ScoreJ2}")
     null = input("Pour quitter, appuyez sur entree...")
     return ScoreJ1, ScoreJ2  # Retourne les scores finaux*
 
