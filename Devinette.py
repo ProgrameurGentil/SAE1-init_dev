@@ -337,4 +337,4 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
     return ScoreJ1, ScoreJ2  # Retourne les scores finaux*
 
 #debug
-Devinette(0,0)
+#Devinette(0,0)
