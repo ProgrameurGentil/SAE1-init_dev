@@ -334,7 +334,7 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
     # Affiche les scores finaux
     print(f"Le score de {Joueur1} est {ScoreJ1} et le score de {Joueur2} est {ScoreJ2}")
     null = input("Pour quitter, appuyez sur entree...")
-    return ScoreJ1, ScoreJ2  # Retourne les scores finaux*
+    return ScoreJ1, ScoreJ2, Joueur1, Joueur2  # Retourne les scores finaux et le nom des joueurs
 
 #debug
 #Devinette(0,0)
