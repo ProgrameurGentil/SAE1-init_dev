@@ -44,13 +44,13 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
     nb_coup: int = 0  # Compteur de coups pour deviner
     sortie1: bool = True  # Flag pour contrôler la boucle principale
     ScoreAjout : int #Valeur à ajouter quand le joueur gagne
-    reponse: str
-    null : str
-    echec : bool
-    echec = False
+    reponse: str # Variable pour que le joueur réponde par '=' '+' ou '-' 
+    null : str # Variable pour quitter le jeu quand une partie est fini
+    echec : bool # Variable pour savoir si le joueur a dépasser le nombre de coups maximum
+    echec = False # Le nombre de coups max n'a pas été atteint
     #Choix du nom des joueurs
-    Joueur1 = str(input("Quel est le nom du Joueur 1 ? \n >>"))
-    Joueur2 = str(input("Quel est le nom du Joueur 2 ? \n >>"))
+    Joueur1 = str(input("Quel est le nom du Joueur 1 ? \n >>")) #Le joueur 1 met son nom
+    Joueur2 = str(input("Quel est le nom du Joueur 2 ? \n >>")) #Le joueur 2 met son nom
     # Choix du joueur qui va entrer le nombre à deviner et la limite
     joueur = int(input("Choisissez quel joueur va entrer un nombre et une limite (1/2) "))
     while joueur > 2 or joueur < 1:  # Validation du choix de joueur
@@ -88,7 +88,7 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
 
 
             if reponse == '+':
-                if echec == False:
+                if echec == False: # Si le nombre de coup max n'a pas encore été atteint
                     if nombre > nb_a_faire_dev:
                         print("c'est moins")
                     else:
@@ -187,7 +187,7 @@ def Devinette(ScoreJ1: int, ScoreJ2: int)->tuple:
 
 
             if nb_coup == 1 + int(log2(limit)):  # Le joueur dépasse le nombre limite de coups
-                echec = True
+                echec = True # Echec devient Vrai Car le nombre de coup max a été atteint
                 print("Vous avez perdu, vous ne gagnerez pas de point. Voulez-vous continuer pour trouver le nombre ?  (o/n)")
                 reponse2 = str(input())
                 if reponse2 == 'o':
