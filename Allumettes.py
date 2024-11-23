@@ -10,22 +10,18 @@ def nb_al(allumettes: int) -> str:
     resultat = '|' * allumettes  # Crée une chaîne avec autant de "|" que d'allumettes restantes
     return resultat
 
-def allumettes(ScoreJ1:int, ScoreJ2:int)->tuple:
+def allumettes(ScoreJ1:int, ScoreJ2:int, Joueur1 : str, Joueur2 : str)->tuple:
     """
     Fonction principale du jeu
     entree : 2 entiers qui correspond aux scores des joueurs
     sortie : un tuple avec en premiere position le nouveau score du joueur 1 et en deuxieme position le nouveau score du joueur 2
     """
-    Joueur1 : str # Nom du joueur 1
-    Joueur2 : str # Nom du joueur 2
     nb_allumettes: int  # Nombre d'allumettes restantes dans le jeu
     Joueur: int  # Indique le joueur en cours (1 ou 2)
     decr_nb_al: int  # Nombre d'allumettes à retirer
     Sortie: bool  # Variable pour gérer la fin du tour
 
     nb_allumettes = 20  # Le jeu commence avec 20 allumettes
-    Joueur1 = str(input("Quel est le nom du Joueur 1 ? \n >>")) # Le joueur 1 met son nom
-    Joueur2 = str(input("Quel est le nom du Joueur 2 ? \n >>")) # Le joueur 2 met son nom
 
     # Choisir quel joueur commence (1 ou 2)
     Joueur = int(input("Choisissez quel joueur commence (1/2)  "))
