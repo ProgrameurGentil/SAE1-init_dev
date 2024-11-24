@@ -123,4 +123,4 @@ def allumettes(ScoreJ1:int, ScoreJ2:int, Joueur1 : str, Joueur2 : str)->tuple:
             Joueur = 1  # Passe au joueur 1
 
 
-    return ScoreJ1, ScoreJ2, Joueur1, Joueur2  # Retourne les scores finaux des deux joueurs et leurs nom
+    return ScoreJ1, ScoreJ2  # Retourne les scores finaux des deux joueurs
