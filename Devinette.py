@@ -1,5 +1,6 @@
 from math import *  # Importe toutes les fonctions de la bibliothèque math
 import os  # Importe le module OS pour nettoyer l’écran
+from typing import Tuple # Initilisation des variables
 
 def points(lim: int, nombreDeCoups: int) -> int:
     """
@@ -27,7 +28,7 @@ def points(lim: int, nombreDeCoups: int) -> int:
     return nb_point
 
 
-def Devinette(ScoreJ1: int, ScoreJ2: int, Joueur1 : str, Joueur2 : str)->tuple:
+def Devinette(ScoreJ1: int, ScoreJ2: int, Joueur1 : str, Joueur2 : str)->Tuple[int]:
     """
     Fonction principale de la "Devinette" où un joueur doit deviner un nombre choisi par l'autre joueur
 
