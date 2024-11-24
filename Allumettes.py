@@ -1,4 +1,5 @@
 import os
+from typing import Tuple # Initialisation des variables
 
 def nb_al(allumettes: int) -> str:
     """
@@ -10,7 +11,7 @@ def nb_al(allumettes: int) -> str:
     resultat = '|' * allumettes  # Crée une chaîne avec autant de "|" que d'allumettes restantes
     return resultat
 
-def allumettes(ScoreJ1:int, ScoreJ2:int, Joueur1 : str, Joueur2 : str)->tuple:
+def allumettes(ScoreJ1:int, ScoreJ2:int, Joueur1 : str, Joueur2 : str)->Tuple[int]:
     """
     Fonction principale du jeu
     entree : 2 entiers qui correspond aux scores des joueurs
