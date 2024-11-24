@@ -20,6 +20,7 @@ def allumettes(ScoreJ1:int, ScoreJ2:int, Joueur1 : str, Joueur2 : str)->Tuple[in
     nb_allumettes: int  # Nombre d'allumettes restantes dans le jeu
     Joueur: int  # Indique le joueur en cours (1 ou 2)
     decr_nb_al: int  # Nombre d'allumettes à retirer
+    null : str # Variable pour quitter le jeu quand une partie est fini
     Sortie: bool  # Variable pour gérer la fin du tour
 
     nb_allumettes = 20  # Le jeu commence avec 20 allumettes
@@ -27,6 +28,7 @@ def allumettes(ScoreJ1:int, ScoreJ2:int, Joueur1 : str, Joueur2 : str)->Tuple[in
     # Choisir quel joueur commence (1 ou 2)
     Joueur = int(input("Choisissez quel joueur commence (1/2)  "))
     while Joueur < 1 or Joueur > 2:  # Validation du choix
+        os.system("cls") # # # # # # # # """""""""""""""""""""""""
         print("Erreur de saisie, veuillez réessayer")
         Joueur = int(input("Choisissez quel joueur commence (1/2)  "))
 
@@ -41,6 +43,7 @@ def allumettes(ScoreJ1:int, ScoreJ2:int, Joueur1 : str, Joueur2 : str)->Tuple[in
 
             # Validation de l'entrée pour s'assurer que le joueur retire 1 à 3 allumettes
             while decr_nb_al < 1 or decr_nb_al > 3:
+                os.system("cls") # # # # # # # # """""""""""""""""""""""""
                 print("Erreur de saisie, veuillez réessayer")
                 print(nb_al(nb_allumettes))
                 print(f"Il reste {nb_allumettes} allumettes")
@@ -86,6 +89,7 @@ def allumettes(ScoreJ1:int, ScoreJ2:int, Joueur1 : str, Joueur2 : str)->Tuple[in
 
             # Validation de l'entrée pour s'assurer que le joueur retire 1 à 3 allumettes
             while decr_nb_al < 1 or decr_nb_al > 3:
+                os.system("cls") # # # # # # # # """""""""""""""""""""""""
                 print("Erreur de saisie, veuillez réessayer")
                 print(nb_al(nb_allumettes))
                 print(f"Il reste {nb_allumettes} allumettes")
@@ -122,6 +126,7 @@ def allumettes(ScoreJ1:int, ScoreJ2:int, Joueur1 : str, Joueur2 : str)->Tuple[in
                             ScoreJ1 += 50
                         Sortie = False
             Joueur = 1  # Passe au joueur 1
+    null = input("Pour quitter, appuyez sur entree...")
 
 
     return ScoreJ1, ScoreJ2  # Retourne les scores finaux des deux joueurs
