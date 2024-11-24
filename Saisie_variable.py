@@ -1,5 +1,7 @@
 # Créé par henzo, le 23/10/2024 avec Python 3.7 en UTF-8
 
+from os import system
+
 def saisie_oui_non(msg_saisie:str, msg_erreur:str, oui:str='o', non:str='n')->bool:
     """
     fonction de saisie ou l'on peut repondre par oui ou par non en conformite des parametre "oui" et "non"
@@ -20,11 +22,11 @@ def saisie_oui_non(msg_saisie:str, msg_erreur:str, oui:str='o', non:str='n')->bo
     print(msg_saisie)
     choix = input(">> ").lower()
 
-    while choix != oui or choix != non:
-        print(msg_erreur)
+    while choix != oui and choix != non:
+        system("cls")
 
+        print(msg_erreur)
         print(msg_saisie)
         choix = input(">> ").lower()
 
     return choix == oui
-

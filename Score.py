@@ -5,11 +5,13 @@ from typing import List # typage
 class Scores_joueur:
     """
     Structure qui prend en memtoire la listes des points des differents jeux d'un joueur
+    pseudo : str -> nom du joueur
     n_joueur : int -> numero du joueur
     liste_score_devinette : List[int] -> liste de score du jeu de la devinette
     liste_score_allumettes : List[int] -> liste de score du jeu des allumettes
     liste_score_morpion : List[int] -> liste de score du jeu du morpion
     """
+    pseudo : str
     n_joueur : int # numero du joueur
     liste_score_devinette : List[int] # liste de score du jeu de la devinette
     liste_score_allumettes : List[int] # liste de score du jeu des allumettes
@@ -24,11 +26,12 @@ class Rang_score:
     n_partie : int # numero de la partie
     valeur : int # valeur du score
 
-def initialisation_score(n_joueur:int, ls_devinette:List[int], ls_allumettes:List[int], ls_morpion:List[int])->Scores_joueur:
+def initialisation_score(pseudo:str, n_joueur:int, ls_devinette:List[int], ls_allumettes:List[int], ls_morpion:List[int])->Scores_joueur:
     """
     fonction qui initialise les scores d'un joueur dans la strucuture Scores_joueur
 
-    entree : un entier qui correspond au numéro d'un joueur soit 1, soit 2
+    entree : une chaine de caractere qui correspond au speudo/nom de l'utilisateur
+             un entier qui correspond au numéro d'un joueur soit 1, soit 2
              trois liste d'entier qui correspond seccessivement aux listes des scores du jeu des devinettes, des allumettes et du mopion
     sortie : une structure Scores_joueur
     """
@@ -38,6 +41,7 @@ def initialisation_score(n_joueur:int, ls_devinette:List[int], ls_allumettes:Lis
 
     score_j = Scores_joueur() # initialisation de la structure
     # affectation des donnees :
+    score_j.pseudo = pseudo
     score_j.n_joueur = n_joueur
     score_j.liste_score_allumettes = ls_allumettes
     score_j.liste_score_devinette = ls_devinette
@@ -56,7 +60,7 @@ def score_update(jeu:str, scores_joueur:Scores_joueur, nouveau_score:int):
 
     jeu = jeu.lower()
 
-    assert jeu == "allumettes" or jeu == "morpion" or jeu == "devienette" # verification du jeu
+    assert jeu == "allumettes" or jeu == "morpion" or jeu == "devinette" # verification du jeu
 
     # ajout du score a la liste de scores en fonction du jeu :
     if jeu == "allumettes":

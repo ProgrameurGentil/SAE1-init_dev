@@ -10,13 +10,12 @@ from typing import Callable as Function, Callable as Procedure # typage
 from Score import Scores_joueur, Rang_score, score_update, get_score, somme_score, meilleur_score, trie_score # gestion des scores
 from enregistrement import sauvegarde # sauvegarde des donnees
 
-def affichage_nb_score(n_joueur : int, l_score:List[int], nom_jeu:str):
+def affichage_nb_score(nom_joueur : str, l_score:List[int], nom_jeu:str):
     """
     procedure qui affiche les scores dans l'odre decroissant du joueur
 
-    entree : un entier qui correspond au numero du joueur
-             une liste d'entier qui correspond au score du joueur
-             une chaine de caractere qui correspond au nom du jeu
+    entree : une liste d'entier qui correspond au score du joueur
+             deux chaines de caracteres qui correspondent au du joueur et du nom du jeu
     """
     null : str # varible ne servant à rien
     l_score_rang : List[Rang_score]
@@ -24,7 +23,7 @@ def affichage_nb_score(n_joueur : int, l_score:List[int], nom_jeu:str):
 
     l_score_rang = trie_score(l_score)
 
-    print(f"Voici la liste des scores dans l'orde decroissant du joueur {n_joueur} dans le jeu {nom_jeu}: ")
+    print(f"Voici la liste des scores dans l'orde decroissant du joueur {nom_joueur} dans le jeu {nom_jeu}: ")
     if len(l_score_rang) == 0: # si il n'y a pas de score enregistre
         print("Ah... Vous n'avez pas encore de points dans ce jeu...")
     else:
@@ -88,17 +87,27 @@ def sous_menu(nom_jeu:str, fonc_jeu:Function, fonc_aide:Procedure, scores_j1:Sco
         if choix < 1 or choix > 4: # gestion des erreurs
             print("Erreur : le choix n'est pas valide.")
 
-        if choix == 1:
-            scores = fonc_jeu(0, 0)
+        if choix == 1: # Jouer
+            os.system("cls")
+            scores = fonc_jeu(0, 0, scores_j1.pseudo, scores_j2.pseudo)
             score_update(nom_jeu, scores_j1, scores[0])
             score_update(nom_jeu, scores_j2, scores[1])
-
-        elif choix == 2:
-            fonc_aide()
-
-        elif choix == 3:
             os.system("cls")
-            affichage_nb_score(scores_j1.n_joueur, get_score(nom_jeu, scores_j1), nom_jeu)
-            affichage_nb_score(scores_j2.n_joueur, get_score(nom_jeu, scores_j2), nom_jeu)
+
+        elif choix == 2: # Aide
+            os.system("cls")
+            fonc_aide()
+            os.system("cls")
+
+        elif choix == 3: # Scores precedent
+            os.system("cls")
+            affichage_nb_score(scores_j1.pseudo, get_score(nom_jeu, scores_j1), nom_jeu)
+            affichage_nb_score(scores_j2.pseudo, get_score(nom_jeu, scores_j2), nom_jeu)
             null = input("\n(taper sur entree pour continuer...)")
             os.system("cls")
+
+"""
+la procedure afffichage_nb_score peut etre teste en mettant un numero de joueur et un nom de jeu quelconque ainsi que differente liste d'entier (scores) trie ou non trie
+la procedure menu peut etre teste en mettant differentes structures de joueurs remplie ou vide (mais avec de valeur initialise bien sur)
+la procedure sous_menu peut etre teste en mettant un nom de jeu, une fonction et une procedure quelconque et avec differentes structures de joueurs remplie ou vide (mais avec de valeur initialise bien sur)
+"""

@@ -220,7 +220,7 @@ def verif_remplissage(plateau:List[List[str]])->bool:
 
 # fonction principal
 
-def morpion(score_j1:int, score_j2:int)->tuple:
+def morpion(score_j1:int, score_j2:int, nom_j1:str, nom_j2)->tuple:
     """
     fonction principal du jeu du morpion
 
@@ -252,7 +252,10 @@ def morpion(score_j1:int, score_j2:int)->tuple:
 
         while not verif_morpion(plateau) and not verif_remplissage(plateau):
             os.system("cls")
-            print(f"Joueur {joueur_jouant}, à vous de jouer !! (Vous etes {symbole_joueur[joueur_jouant - 1]})") # mettre le symbole correspondant
+            if joueur_jouant == 1:
+                print(f"{nom_j1}, à vous de jouer !! (Vous etes {symbole_joueur[joueur_jouant - 1]})")
+            else:
+                print(f"{nom_j2}, à vous de jouer !! (Vous etes {symbole_joueur[joueur_jouant - 1]})")
             affichage(plateau)
 
             placement = saisie_placement(plateau)
@@ -277,7 +280,11 @@ def morpion(score_j1:int, score_j2:int)->tuple:
             os.system("cls")
             affichage(plateau)
             joueur_gagnant = symbole_joueur.index(symbole_gagnant_morpion(plateau)) + 1
-            print(f"Bravo joueur {joueur_gagnant}, tu as gagné 100 pnts !!")
+
+            if joueur_gagnant == 1:
+                print(f"Bravo {nom_j1}, tu as gagné 100 pnts !!")
+            else:
+                print(f"Bravo {nom_j2}, tu as gagné 100 pnts !!")
 
             # incrementation du score du joueur gagnant
             if joueur_gagnant == 1:
@@ -304,4 +311,11 @@ def morpion(score_j1:int, score_j2:int)->tuple:
 ##plateau = [['X', 'O', 'X'], ['', 'O', ''], ['X', 'X', 'O']]
 ##print(verif_remplissage(plateau))
 
-##morpion(0,0)
+##morpion(0,0, "Jonate", "huge")
+
+
+"""
+la procedure menu n'a pas de cas de test
+la procedure affichage peut etre teste en mettant des matice quelconque -> le seul point qui ne serait pas bon est le nommage des colones qui affichera tjrs A B C
+la fontion verif_moprion ne fonction qu'avec une grille de morpion 3x3. on peut la tester avec
+"""
