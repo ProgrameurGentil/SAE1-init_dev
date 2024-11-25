@@ -113,7 +113,9 @@ la procedure sauvegarde peut etre teste en mettant differente structure Score_jo
 les fonctions chargement_nb_pnts_j1 et chargement_nb_pnts_j2 n'ont pas de cas de test
 """
 
+# debug
+
 ##ecriture({"admin":{"Devinette":[], "Allumettes":[], "Morpion":[]}})
 
-print(lecture())
+##print(lecture())
 ##print(chargement_nb_pnts("henzo"))

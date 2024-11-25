@@ -113,7 +113,7 @@ def get_score(jeu:str, scores_joueur:Scores_joueur)->List[int]:
         l_score = scores_joueur.liste_score_allumettes
     elif jeu == "morpion" and len(scores_joueur.liste_score_morpion) > 0:
         l_score = scores_joueur.liste_score_morpion
-    elif len(scores_joueur.liste_score_devinette) > 0:
+    elif jeu == "devinette" and len(scores_joueur.liste_score_devinette) > 0:
         l_score = scores_joueur.liste_score_devinette
 
     return l_score
@@ -126,10 +126,30 @@ def somme_score(l_score:List[int])->int:
     sortie : un entier qui reprensente la somme des scores
     """
     i : int
-    score_tt : int
+    score_tt : int = 0
 
     for i in range(len(l_score)):
         score_tt = score_tt + l_score[i]
+
+    return score_tt
+
+def somme_score_interjeux(scores:Scores_joueur)->int:
+    """
+    fonction qui fait la somme des scores de tout les jeux de la structure Scores_joueur (devinette, allumettes et morpion)
+
+    entree : une sctucure Scores_joueur
+    sortie : un entier qui reprensente la somme des scores inter jeux
+    """
+    i : int
+    j : int
+    score_tt : int = 0
+    listes_scores : List[List[int]]
+
+    listes_scores = [get_score("Devinette", scores), get_score("Allumettes", scores), get_score("Morpion", scores)] # matrice de tout les scores
+
+    for i in range(len(listes_scores)):
+        for j in range(len(listes_scores[i])):
+            score_tt = score_tt + listes_scores[i][j]
 
     return score_tt
 
