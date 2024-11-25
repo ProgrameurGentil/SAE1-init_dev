@@ -49,10 +49,17 @@ def Devinette(ScoreJ1: int, ScoreJ2: int, Joueur1 : str, Joueur2 : str)->Tuple[i
     echec = False # Le nombre de coups max n'a pas été atteint
     #Choix du nom des joueurs
     # Choix du joueur qui va entrer le nombre à deviner et la limite
-    joueur = int(input("Choisissez quel joueur va entrer un nombre et une limite (1/2) "))
+    print("Qui joue en 1er ?")
+    print(f"1- {Joueur1}")
+    print(f"2- {Joueur2}")
+    joueur = int(input(">>"))
     while joueur > 2 or joueur < 1:  # Validation du choix de joueur
+        os.system('cls')  # Nettoie l’écran (sous Windows)
         print("Erreur de saisie, veuillez réessayer")
-        joueur = int(input("Choisissez quel joueur va entrer un nombre et une limite (1/2) "))
+        print("Qui joue en 1er ?")
+        print(f"1- {Joueur1}")
+        print(f"2- {Joueur2}")
+        joueur = int(input(">>"))
 
     # Paramétrage selon le joueur choisi
     if joueur == 1:
@@ -62,7 +69,7 @@ def Devinette(ScoreJ1: int, ScoreJ2: int, Joueur1 : str, Joueur2 : str)->Tuple[i
             limit = int(input(f"{Joueur1}, veuillez choisir la limite maximum  "))
         nb_a_faire_dev = int(input(f"{Joueur1}, veuillez choisir un nombre à faire deviner  "))
 
-        os.system('cls')  # Nettoie l’écran (sous Windows)
+        os.system('cls') 
 
         # Validation pour s'assurer que le nombre à deviner est dans les limites
         while nb_a_faire_dev > limit or nb_a_faire_dev < 1:
