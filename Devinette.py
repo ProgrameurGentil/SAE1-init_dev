@@ -49,14 +49,14 @@ def Devinette(ScoreJ1: int, ScoreJ2: int, Joueur1 : str, Joueur2 : str)->Tuple[i
     echec = False # Le nombre de coups max n'a pas été atteint
     #Choix du nom des joueurs
     # Choix du joueur qui va entrer le nombre à deviner et la limite
-    print("Qui joue en 1er ?")
+    print("Qui Entre un nombre et défini une limite ?")
     print(f"1- {Joueur1}")
     print(f"2- {Joueur2}")
     joueur = int(input(">>"))
     while joueur > 2 or joueur < 1:  # Validation du choix de joueur
         os.system('cls')  # Nettoie l’écran (sous Windows)
         print("Erreur de saisie, veuillez réessayer")
-        print("Qui joue en 1er ?")
+        print("Qui Entre un nombre et défini une limite ?")
         print(f"1- {Joueur1}")
         print(f"2- {Joueur2}")
         joueur = int(input(">>"))
