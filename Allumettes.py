@@ -26,7 +26,10 @@ def allumettes(ScoreJ1:int, ScoreJ2:int, Joueur1 : str, Joueur2 : str)->Tuple[in
     nb_allumettes = 20  # Le jeu commence avec 20 allumettes
 
     # Choisir quel joueur commence (1 ou 2)
-    Joueur = int(input("Choisissez quel joueur commence (1/2)  "))
+    print("Qui joue en 1er ?")
+    print(f"1- {Joueur1}")
+    print(f"2- {Joueur2}")
+    joueur = int(input(">>"))
     while Joueur < 1 or Joueur > 2:  # Validation du choix
         os.system("cls") # # # # # # # # """""""""""""""""""""""""
         print("Erreur de saisie, veuillez réessayer")
