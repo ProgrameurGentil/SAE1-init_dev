@@ -31,9 +31,12 @@ def allumettes(ScoreJ1:int, ScoreJ2:int, Joueur1 : str, Joueur2 : str)->Tuple[in
     print(f"2- {Joueur2}")
     joueur = int(input(">>"))
     while Joueur < 1 or Joueur > 2:  # Validation du choix
-        os.system("cls") # # # # # # # # """""""""""""""""""""""""
+        os.system('cls')  # Nettoie l’écran (sous Windows)
         print("Erreur de saisie, veuillez réessayer")
-        Joueur = int(input("Choisissez quel joueur commence (1/2)  "))
+        print("Qui joue en 1er ?")
+        print(f"1- {Joueur1}")
+        print(f"2- {Joueur2}")
+        joueur = int(input(">>"))
 
     # Boucle principale du jeu, qui continue jusqu'à ce qu'il n'y ait plus d'allumettes
     while nb_allumettes != 0:
