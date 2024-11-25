@@ -288,9 +288,9 @@ def morpion(score_j1:int, score_j2:int, nom_j1:str, nom_j2)->tuple:
 
             # incrementation du score du joueur gagnant
             if joueur_gagnant == 1:
-                score_j1 = score_j1 + 100
+                score_j1 = score_j1 + 25
             else:
-                score_j2 = score_j2 + 100
+                score_j2 = score_j2 + 25
 
         null = input("\n(taper sur entree pour continuer...)")
         os.system("cls")

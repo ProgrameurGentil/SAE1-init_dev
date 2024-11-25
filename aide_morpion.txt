@@ -14,7 +14,7 @@
 |                                                                                                                       |
 |Une fois votre tour jouer, c'est au tour du second joueur. Pour savoir qui doit jouer, il suffit de regarder la ligne  |
 |la plus haute de l'affichage qui indique le joueur qui doit jouer ainsi que le symbole qui le correspond.              |
-|Une fois la partie terminé, si le un des deux joueurs a réussi à aligner ces 3 symboles, alors il reçoit 100 points.   |
+|Une fois la partie terminé, si le un des deux joueurs a réussi à aligner ces 3 symboles, alors il reçoit 25 points.    |
 |                                                                                                                       |
 |Si le jeu se finit par un match nul alors aucun point ne sera distribué. Après cela, vous pouvez jouer ou retourner au |
 |menu du jeu. Si vous choisissez de rejouer, alors, le vainqueur commencera.                                            |
