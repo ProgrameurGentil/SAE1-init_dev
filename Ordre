@@ -1,5 +1,5 @@
 Ordre de présentation pour le compte rendu
-Menu, aide_allumettes, , aide_jeu, , main
+Menu, main
 
 
 
@@ -13,4 +13,5 @@ Menu, aide_allumettes, , aide_jeu, , main
 -Devinettes
 -aide_morpion
 -Morpion
+-aide_jeu
 
