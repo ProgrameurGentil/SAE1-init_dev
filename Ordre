@@ -1,5 +1,5 @@
 Ordre de présentation pour le compte rendu
-Menu, aide_allumettes, aide_devinettes, aide_jeu, aide_morpion, main
+Menu, aide_allumettes, , aide_jeu, , main
 
 
 
@@ -7,6 +7,10 @@ Menu, aide_allumettes, aide_devinettes, aide_jeu, aide_morpion, main
 -Enregistrement
 -Saisie Variable
 -Login
+-aide_allumettes
 -Allumettes
+-aide_devinettes
 -Devinettes
+-aide_morpion
 -Morpion
+
