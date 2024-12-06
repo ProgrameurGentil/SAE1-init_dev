@@ -30,7 +30,7 @@ def initialisation_score(pseudo:str, n_joueur:int, ls_devinette:List[int], ls_al
     """
     fonction qui initialise les scores d'un joueur dans la structure Scores_joueur
 
-    entree : une chaine de caractere qui correspond au speudo/nom de l'utilisateur
+    entree : une chaine de caractere qui correspond au psseudo/nom de l'utilisateur
              un entier qui correspond au numéro d'un joueur soit 1, soit 2
              trois liste d'entier qui correspond seccessivement aux listes des scores du jeu des devinettes, des allumettes et du mopion
     sortie : une structure Scores_joueur
