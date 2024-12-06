@@ -19,7 +19,7 @@ class Scores_joueur:
 
 class Rang_score:
     """
-    Structure qui prend en memoir la position du score (n_partie) et sa valeur (valeur)
+    Structure qui prend en memoire la position du score (n_partie) et sa valeur (valeur)
     n_partie : int -> numero de la partie
     valeur   : int -> valeur du score
     """
