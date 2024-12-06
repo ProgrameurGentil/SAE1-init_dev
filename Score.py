@@ -28,7 +28,7 @@ class Rang_score:
 
 def initialisation_score(pseudo:str, n_joueur:int, ls_devinette:List[int], ls_allumettes:List[int], ls_morpion:List[int])->Scores_joueur:
     """
-    fonction qui initialise les scores d'un joueur dans la strucuture Scores_joueur
+    fonction qui initialise les scores d'un joueur dans la structure Scores_joueur
 
     entree : une chaine de caractere qui correspond au speudo/nom de l'utilisateur
              un entier qui correspond au numéro d'un joueur soit 1, soit 2
