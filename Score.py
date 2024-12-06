@@ -89,7 +89,7 @@ def get_last_score(jeu:str, scores_joueur:Scores_joueur)->int:
         score = scores_joueur.liste_score_allumettes[-1]
     elif jeu == "dorpion" and len(scores_joueur.liste_score_morpion) > 0:
         score = scores_joueur.liste_score_morpion[-1]
-    elif len(scores_joueur.liste_score_devinette) > 0:
+    elif jeu == "devinette" and len(scores_joueur.liste_score_devinette) > 0:
         score = scores_joueur.liste_score_devinette[-1]
 
     return score
