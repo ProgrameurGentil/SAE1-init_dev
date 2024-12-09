@@ -11,7 +11,7 @@ d'empendance :
 from enregistrement import sauvegarde, chargement_nb_pnts, liste_pseudo_existant # sauvegarde et chargement des donnees
 from Score import Scores_joueur, initialisation_score, score_update, get_last_score, get_score # gestion des scores
 from Menu import menu # menu principal
-from Login import connection
+from Login import connexion
 from typing import List # typage
 import os # systeme
 
@@ -23,8 +23,8 @@ if __name__ == '__main__':
     nom_j1 : str
     nom_j2 : str
 
-    nom_j1 = connection(liste_pseudo_existant(), 1)
-    nom_j2 = connection(liste_pseudo_existant(), 2, nom_j1)
+    nom_j1 = connexion(liste_pseudo_existant(), 1)
+    nom_j2 = connexion(liste_pseudo_existant(), 2, nom_j1)
 
     mat_pnts_j1 = chargement_nb_pnts(nom_j1)
     mat_pnts_j2 = chargement_nb_pnts(nom_j2)
