@@ -53,7 +53,7 @@ def verif_pseudo(pseudo:str)->bool:
 
     return res
 
-def connection(pseudo_existant:List[str], numero:int)->str:
+def connection(pseudo_existant:List[str], numero:int, pseudo_deja_pris:str="")->str:
     """
     fonction de connexion
 
@@ -74,15 +74,16 @@ def connection(pseudo_existant:List[str], numero:int)->str:
         pseudo = input(">> ")
         system("cls")
 
-        if not verif_pseudo(pseudo):
-            print("Erreur : votre nom doit contenir au moins un caractere et ne doit pas etre composé uniquement d'espace")
-
-        elif pseudo_deja_cree(pseudo_existant, pseudo):
-            choix = saisie_oui_non(f"Voulez vous connecter en tant que {pseudo} et ainsi reprendre les scores qui lui sont associés ?",
-                                    "Erreur de saisie")
-        else:
-            choix = saisie_oui_non(f"Voulez vous connecter en tant que {pseudo} ?",
-                                    "Erreur de saisie")
+        if pseudo_deja_pris != pseudo:
+            if not verif_pseudo(pseudo):
+                print("Erreur : votre nom doit contenir au moins un caractere et ne doit pas etre composé uniquement d'espace")
+    
+            elif pseudo_deja_cree(pseudo_existant, pseudo):
+                choix = saisie_oui_non(f"Voulez vous connecter en tant que {pseudo} et ainsi reprendre les scores qui lui sont associés ?",
+                                        "Erreur de saisie")
+            else:
+                choix = saisie_oui_non(f"Voulez vous connecter en tant que {pseudo} ?",
+                                        "Erreur de saisie")
 
         if not choix:
             pseudo = ""
