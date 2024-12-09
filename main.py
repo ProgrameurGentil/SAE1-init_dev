@@ -24,7 +24,7 @@ if __name__ == '__main__':
     nom_j2 : str
 
     nom_j1 = connection(liste_pseudo_existant(), 1)
-    nom_j2 = connection(liste_pseudo_existant(), 2)
+    nom_j2 = connection(liste_pseudo_existant(), 2, nom_j1)
 
     mat_pnts_j1 = chargement_nb_pnts(nom_j1)
     mat_pnts_j2 = chargement_nb_pnts(nom_j2)
