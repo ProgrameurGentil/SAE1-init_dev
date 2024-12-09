@@ -85,6 +85,8 @@ def connexion(pseudo_existant:List[str], numero:int, pseudo_deja_pris:str="")->s
             else:
                 choix = saisie_oui_non(f"Voulez vous connecter en tant que {pseudo} ?",
                                         "Erreur de saisie")
+        else:
+            print("Erreur : votre pseudo est deja en jeu. Veuillez en choisir un autre")
 
         if not choix:
             pseudo = ""
