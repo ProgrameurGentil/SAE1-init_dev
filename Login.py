@@ -59,6 +59,7 @@ def connection(pseudo_existant:List[str], numero:int, pseudo_deja_pris:str="")->
 
     entree : une liste de pseudo existant
              un entier qui represente le numero du joueur
+             une chaine de caracteres qui represente le pseudo de l'autre utilisateur
     sortie : une chaine de caracteres qui represente le pseudo du l'utilisateur
     """
     pseudo : str
