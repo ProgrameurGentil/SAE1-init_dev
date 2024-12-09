@@ -53,7 +53,7 @@ def verif_pseudo(pseudo:str)->bool:
 
     return res
 
-def connection(pseudo_existant:List[str], numero:int, pseudo_deja_pris:str="")->str:
+def connexion(pseudo_existant:List[str], numero:int, pseudo_deja_pris:str="")->str:
     """
     fonction de connexion
 
