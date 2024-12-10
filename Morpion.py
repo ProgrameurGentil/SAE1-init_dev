@@ -282,9 +282,9 @@ def morpion(score_j1:int, score_j2:int, nom_j1:str, nom_j2)->tuple:
             joueur_gagnant = symbole_joueur.index(symbole_gagnant_morpion(plateau)) + 1
 
             if joueur_gagnant == 1:
-                print(f"Bravo {nom_j1}, tu as gagné 100 pnts !!")
+                print(f"Bravo {nom_j1}, tu as gagné 25 pnts !!")
             else:
-                print(f"Bravo {nom_j2}, tu as gagné 100 pnts !!")
+                print(f"Bravo {nom_j2}, tu as gagné 25 pnts !!")
 
             # incrementation du score du joueur gagnant
             if joueur_gagnant == 1:
