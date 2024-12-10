@@ -113,7 +113,7 @@ def symbole_gagnant_morpion(mat:List[List[str]])->str:
 
 def placement_plateau(plateau:List[List[str]], position:str, symbole:str)->bool:
     """
-    fonction qui place un sybole sur le platrau de jeu au coordonne qu'on lui donne et renvoie un booleen en fonction de la reussite du placement
+    fonction qui place un symbole sur le platrau de jeu au coordonne qu'on lui donne et renvoie un booleen en fonction de la reussite du placement
 
     entree : une matrice qui represente le plateau de jeu du morpion ;
              une chaine de caractere qui represente la position sous la forme colone+ligne (ex : A2, B1, C3) ;
