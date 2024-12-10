@@ -32,9 +32,9 @@ if __name__ == '__main__':
     structure_joueur1 = initialisation_score(nom_j1, 1, mat_pnts_j1[0], mat_pnts_j1[1], mat_pnts_j1[2])
     structure_joueur2 = initialisation_score(nom_j2, 2, mat_pnts_j2[0], mat_pnts_j2[1], mat_pnts_j2[2])
 
-    os.system("cls")
+    os.system("clear")
     menu(structure_joueur1, structure_joueur2) # lancement du menu
-    os.system("cls")
+    os.system("clear")
 
 """
 il n'y a aucun cas de test pour ce script

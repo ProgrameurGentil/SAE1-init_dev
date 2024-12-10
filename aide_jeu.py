@@ -19,7 +19,7 @@ def aide(chemin_aide:str):
     fichier_ouvert : str
     nul : str
 
-    system('cls')
+    system('clear')
     if not exists(chemin_aide): # verification de l'existance du fichier
         print("Le fichier d'aide lié à ce jeu n'a pas été trouvé")
     else:
@@ -29,7 +29,7 @@ def aide(chemin_aide:str):
         print(fichier_ouvert) # affichage de l'aide
 
     nul = input("Pour quitter, appuyez sur entree...")
-    system('cls')
+    system('clear')
 
 def aide_morpion():
     """
@@ -37,9 +37,8 @@ def aide_morpion():
     """
     chemin_acces : str
     chemin_acces = f"{getcwd()}/aide_morpion.txt"
-    print("e:", exists(chemin_acces), chemin_acces)
-
-    aide(chemin_acces)
+ 
+    ##aide(chemin_acces)
 
 def aide_allumettes():
     """
@@ -59,4 +58,4 @@ def aide_devinette():
     aide(chemin_acces)
 
 # debug
-##aide_morpion()
+#aide_morpion()

@@ -65,7 +65,7 @@ def connexion(pseudo_existant:List[str], numero:int, pseudo_deja_pris:str="")->s
     pseudo : str
     choix : str
 
-    system("cls")
+    system("clear")
 
     pseudo = ""
     choix = False
@@ -73,7 +73,7 @@ def connexion(pseudo_existant:List[str], numero:int, pseudo_deja_pris:str="")->s
     while pseudo == "":
         print(f"Joueur {numero}, quel est votre pseudo ?")
         pseudo = input(">> ")
-        system("cls")
+        system("clear")
 
         if pseudo_deja_pris != pseudo:
             if not verif_pseudo(pseudo):

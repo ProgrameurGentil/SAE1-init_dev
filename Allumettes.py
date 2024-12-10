@@ -31,7 +31,7 @@ def allumettes(ScoreJ1:int, ScoreJ2:int, Joueur1 : str, Joueur2 : str)->Tuple[in
     print(f"2- {Joueur2}")
     Joueur = int(input(">>"))
     while Joueur < 1 or Joueur > 2:  # Validation du choix
-        os.system('cls')  # Nettoie l’écran (sous Windows)
+        os.system('clear')  # Nettoie l’écran (sous Windows)
         print("Erreur de saisie, veuillez réessayer")
         print("Qui joue en 1er ?")
         print(f"1- {Joueur1}")
@@ -40,7 +40,7 @@ def allumettes(ScoreJ1:int, ScoreJ2:int, Joueur1 : str, Joueur2 : str)->Tuple[in
 
     # Boucle principale du jeu, qui continue jusqu'à ce qu'il n'y ait plus d'allumettes
     while nb_allumettes != 0:
-        os.system("cls")
+        os.system("clear")
         if Joueur == 1:
             Sortie = True  # Variable pour gérer la fin du tour
             print(nb_al(nb_allumettes))  # Affiche les allumettes restantes
@@ -49,7 +49,7 @@ def allumettes(ScoreJ1:int, ScoreJ2:int, Joueur1 : str, Joueur2 : str)->Tuple[in
 
             # Validation de l'entrée pour s'assurer que le joueur retire 1 à 3 allumettes
             while decr_nb_al < 1 or decr_nb_al > 3:
-                os.system("cls") # # # # # # # # """""""""""""""""""""""""
+                os.system("clear") # # # # # # # # """""""""""""""""""""""""
                 print("Erreur de saisie, veuillez réessayer")
                 print(nb_al(nb_allumettes))
                 print(f"Il reste {nb_allumettes} allumettes")
@@ -95,7 +95,7 @@ def allumettes(ScoreJ1:int, ScoreJ2:int, Joueur1 : str, Joueur2 : str)->Tuple[in
 
             # Validation de l'entrée pour s'assurer que le joueur retire 1 à 3 allumettes
             while decr_nb_al < 1 or decr_nb_al > 3:
-                os.system("cls") # # # # # # # # """""""""""""""""""""""""
+                os.system("clear") # # # # # # # # """""""""""""""""""""""""
                 print("Erreur de saisie, veuillez réessayer")
                 print(nb_al(nb_allumettes))
                 print(f"Il reste {nb_allumettes} allumettes")

@@ -67,7 +67,7 @@ def menu(scores_j1:Scores_joueur, scores_j2:Scores_joueur):
         print("4) Score total (inter-jeux)")
         print("5) Quitter")
         choix = int(input(">> "))
-        os.system("cls")
+        os.system("clear")
 
         if choix < 0 or choix > 5: # gestion des erreurs
             print("Erreur, le choix n'est pas valide")
@@ -82,11 +82,11 @@ def menu(scores_j1:Scores_joueur, scores_j2:Scores_joueur):
             sous_menu("Morpion", morpion, aide_morpion, scores_j1, scores_j2)
 
         elif choix == 4: # affichage de la somme des scores de tout les jeux des joueurs
-            os.system("cls")
+            os.system("clear")
             affichage_nb_score_total(scores_j1)
             affichage_nb_score_total(scores_j2)
             null = input("\n(taper sur entree pour continuer...)")
-            os.system("cls")
+            os.system("clear")
 
     sauvegarde(scores_j1, scores_j2)
 
@@ -111,29 +111,29 @@ def sous_menu(nom_jeu:str, fonc_jeu:Function, fonc_aide:Procedure, scores_j1:Sco
         print("3) Scores precedent")
         print("4) Quitter et revenir au menu principal")
         choix = int(input(">> "))
-        os.system("cls")
+        os.system("clear")
 
         if choix < 1 or choix > 4: # gestion des erreurs
             print("Erreur : le choix n'est pas valide.")
 
         if choix == 1: # Jouer
-            os.system("cls")
+            os.system("clear")
             scores = fonc_jeu(0, 0, scores_j1.pseudo, scores_j2.pseudo)
             score_update(nom_jeu, scores_j1, scores[0])
             score_update(nom_jeu, scores_j2, scores[1])
-            os.system("cls")
+            os.system("clear")
 
         elif choix == 2: # Aide
-            os.system("cls")
+            os.system("clear")
             fonc_aide()
-            os.system("cls")
+            os.system("clear")
 
         elif choix == 3: # Scores precedent
-            os.system("cls")
+            os.system("clear")
             affichage_nb_score(scores_j1.pseudo, get_score(nom_jeu, scores_j1), nom_jeu)
             affichage_nb_score(scores_j2.pseudo, get_score(nom_jeu, scores_j2), nom_jeu)
             null = input("\n(taper sur entree pour continuer...)")
-            os.system("cls")
+            os.system("clear")
 
 """
 la procedure afffichage_nb_score peut etre teste en mettant un numero de joueur et un nom de jeu quelconque ainsi que differente liste d'entier (scores) trie ou non trie

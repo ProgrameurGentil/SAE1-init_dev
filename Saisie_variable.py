@@ -23,7 +23,7 @@ def saisie_oui_non(msg_saisie:str, msg_erreur:str, oui:str='o', non:str='n')->bo
     choix = input(">> ").lower()
 
     while choix != oui and choix != non:
-        system("cls")
+        system("clear")
 
         print(msg_erreur)
         print(msg_saisie)
