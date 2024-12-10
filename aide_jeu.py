@@ -38,7 +38,7 @@ def aide_morpion():
     chemin_acces : str
     chemin_acces = f"{getcwd()}/aide_morpion.txt"
  
-    ##aide(chemin_acces)
+    aide(chemin_acces)
 
 def aide_allumettes():
     """
