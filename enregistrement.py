@@ -1,7 +1,7 @@
 # Créé par henzo, le 24/10/2024 avec Python 3.7 en UTF-8
 
 import pickle # module d'enregistrement
-from os.path import exists # systeme
+from os.path import exists, dirname, realpath # systeme
 from typing import List, Tuple, BinaryIO # typage
 import os # systeme
 from pathlib import Path # systeme
@@ -19,8 +19,8 @@ def lecture()->tuple:
     scores : dict
     sauvgarde : pickle.io.BufferedReader # BinaryIO
 
-    if exists(f'{os.getcwd()}/sauvegarde_score.bu'):
-        with open(f'{os.getcwd()}/sauvegarde_score.bu', 'rb') as sauvgarde:
+    if exists(f'{dirname(realpath(__file__))}/sauvegarde_score.bu'):
+        with open(f'{dirname(realpath(__file__))}/sauvegarde_score.bu', 'rb') as sauvgarde:
             scores = pickle.load(sauvgarde)
 
     else:
@@ -37,7 +37,7 @@ def ecriture(score:dict):
     """
     f1 : pickle.io.BufferedWriter # BinaryIO
 
-    with open(f'{os.getcwd()}/sauvegarde_score.bu', 'wb') as f1:
+    with open(f'{dirname(realpath(__file__))}/sauvegarde_score.bu', 'wb') as f1:
         pickle.dump(score, f1)
 
 # ----------------------------- # fonction d'utilisation

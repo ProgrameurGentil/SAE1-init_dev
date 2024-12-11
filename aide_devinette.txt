@@ -12,7 +12,7 @@
 |Apres cela, l'autre joueur doit deviner quel est le nombre mystère mais faite attention, un nombre de coup limite est    |
 |imposé. Si vous le dépasser, vous ne gagnerai plus de point.                                                             |
 |A la fin de chaque tour, le joueur faisant deviner doit dire si la tentative est supérieur, inferieur ou égal au nombre à|
-|trouver (il doit le spécifier dans la zone de saisie par +, - ou =). Gare aux mensonges, ça peut vous couter des points  |
+|trouver (il doit le spécifier dans la zone de saisie par +, - ou =). Gare aux mensonges, ça peut vous couter des points !|
 |Enfin, si le joueur cherchant trouve le nombre mystère dans le nombre de coup imparti, alors il gagnera des points qui   |
 |varierons en fonction du nombre d'essaie. 					Bonne chance !                            |
 |                                                                                                                         |

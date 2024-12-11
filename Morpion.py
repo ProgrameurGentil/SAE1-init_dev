@@ -19,14 +19,14 @@ def menu()->bool:
     res : bool
 
     choix = 0 # initialistion de la variable de choix
-    os.system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
 
     while choix < 1 or choix > 2: # tant que le choix
         print("Que voulez-vous faire ?")
         print("1) Re-jouer")
         print("2) Quitter")
         choix = int(input(">> "))
-        os.system("clear")
+        os.system("cls" if os.name == "nt" else "clear")
 
         if choix < 1 or choix > 2: # si la saisie est mauvaise, afficher un message d'erreur
             print("Erreur de saisie...")
@@ -180,7 +180,7 @@ def saisie_placement(plateau:List[List[str]])->str:
     position = input("où voulez-vous vous placer ? (col, lig => lettre+chiffre)\n>>").upper()
 
     while not verif_placement(position): # on repose la question tant que le placement est mauvais
-        os.system("clear")
+        os.system("cls" if os.name == "nt" else "clear")
         affichage(plateau)
         print("Erreur d'entrée : le placement doit etre de la forme nb+chiffre (ex: A1, B3, C2)")
         position = input("où voulez-vous vous placer ? (col, lig => lettre+chiffre)\n>> ").upper()
@@ -241,7 +241,7 @@ def morpion(score_j1:int, score_j2:int, nom_j1:str, nom_j2)->tuple:
     joueur_gagnant = -1
 
     while jouer:
-        os.system("clear")
+        os.system("cls" if os.name == "nt" else "clear")
         plateau = [['','',''],
                    ['','',''],
                    ['','','']]
@@ -251,7 +251,7 @@ def morpion(score_j1:int, score_j2:int, nom_j1:str, nom_j2)->tuple:
         joueur_jouant = joueur_gagnant
 
         while not verif_morpion(plateau) and not verif_remplissage(plateau):
-            os.system("clear")
+            os.system("cls" if os.name == "nt" else "clear")
             if joueur_jouant == 1:
                 print(f"{nom_j1}, à vous de jouer !! (Vous etes {symbole_joueur[joueur_jouant - 1]})")
             else:
@@ -261,7 +261,7 @@ def morpion(score_j1:int, score_j2:int, nom_j1:str, nom_j2)->tuple:
             placement = saisie_placement(plateau)
 
             while not placement_plateau(plateau, placement, symbole_joueur[joueur_jouant - 1]):
-                os.system("clear")
+                os.system("cls" if os.name == "nt" else "clear")
                 affichage(plateau)
                 print("Ah... je crois que la place est deja prise...")
                 placement = saisie_placement(plateau)
@@ -273,11 +273,11 @@ def morpion(score_j1:int, score_j2:int, nom_j1:str, nom_j2)->tuple:
 
 
         if verif_remplissage(plateau):
-            os.system("clear")
+            os.system("cls" if os.name == "nt" else "clear")
             affichage(plateau)
             print("Stoooopp !! Egalité !")
         else:
-            os.system("clear")
+            os.system("cls" if os.name == "nt" else "clear")
             affichage(plateau)
             joueur_gagnant = symbole_joueur.index(symbole_gagnant_morpion(plateau)) + 1
 
@@ -293,9 +293,9 @@ def morpion(score_j1:int, score_j2:int, nom_j1:str, nom_j2)->tuple:
                 score_j2 = score_j2 + 25
 
         null = input("\n(taper sur entree pour continuer...)")
-        os.system("clear")
+        os.system("cls" if os.name == "nt" else "clear")
         jouer = menu()
-    os.system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
 
     return score_j1, score_j2
 

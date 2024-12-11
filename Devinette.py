@@ -54,7 +54,7 @@ def Devinette(ScoreJ1: int, ScoreJ2: int, Joueur1 : str, Joueur2 : str)->Tuple[i
     print(f"2- {Joueur2}")
     joueur = int(input(">>"))
     while joueur > 2 or joueur < 1:  # Validation du choix de joueur
-        os.system('clear')  # Nettoie l’écran (sous Windows)
+        os.system("cls" if os.name == "nt" else "clear")  # Nettoie l’écran (sous Windows)
         print("Erreur de saisie, veuillez réessayer")
         print("Qui Entre un nombre et défini une limite ?")
         print(f"1- {Joueur1}")
@@ -69,24 +69,24 @@ def Devinette(ScoreJ1: int, ScoreJ2: int, Joueur1 : str, Joueur2 : str)->Tuple[i
             limit = int(input(f"{Joueur1}, veuillez choisir la limite maximum  "))
         nb_a_faire_dev = int(input(f"{Joueur1}, veuillez choisir un nombre à faire deviner  "))
 
-        os.system('clear') 
+        os.system("cls" if os.name == "nt" else "clear") 
 
         # Validation pour s'assurer que le nombre à deviner est dans les limites
         while nb_a_faire_dev > limit or nb_a_faire_dev < 1:
             nb_a_faire_dev = int(input("Erreur de saisie, veuillez rentrer un nouveau nombre à faire deviner  "))
-            os.system('clear')
+            os.system("cls" if os.name == "nt" else "clear")
 
         # Boucle principale pour les tentatives de devinette
         while sortie1:
             print("Le nombre de coups max est:  ", 1 + int(log2(limit)))  # Affiche le nombre de coups maximum
             nombre = int(input(f"{Joueur2}, veuillez choisir un nombre, la limite est {limit} et ton nombre d'essai actuel est {nb_coup}   "))
             while 0 > nombre or nombre > limit:
-                os.system('clear')
+                os.system("cls" if os.name == "nt" else "clear")
                 print(f"Erreur de saisie, le nombre {nombre} n'est pas inclu dans la limite : ]0 {limit}]")
                 nombre = int(input(f"{Joueur2}, veuillez choisir un nombre, la limite est {limit} et ton nombre d'essai actuel est {nb_coup}   "))
 
             nb_coup += 1  # Incrémente le compteur de coups
-            os.system('clear')
+            os.system("cls" if os.name == "nt" else "clear")
             # Demande si le nombre deviné est plus grand, plus petit, ou égal
             reponse = str(input(f"Est-ce que le nombre {nombre} est plus grand (+), plus petit (-), ou égal (=) au nombre choisi ?  "))
 
@@ -208,11 +208,11 @@ def Devinette(ScoreJ1: int, ScoreJ2: int, Joueur1 : str, Joueur2 : str)->Tuple[i
         while limit < 1:
             print("Erreur de syntaxe, la limite est inférieur à 1")
         nb_a_faire_dev = int(input(f"{Joueur2}, veuillez choisir un nombre à faire deviner  "))
-        os.system('clear')
+        os.system("cls" if os.name == "nt" else "clear")
 
         while nb_a_faire_dev > limit or nb_a_faire_dev < 1:
             nb_a_faire_dev = int(input("Erreur de saisie, veuillez rentrer un nouveau nombre à faire deviner  "))
-            os.system('clear')
+            os.system("cls" if os.name == "nt" else "clear")
 
 
 
@@ -221,11 +221,11 @@ def Devinette(ScoreJ1: int, ScoreJ2: int, Joueur1 : str, Joueur2 : str)->Tuple[i
             print("Le nombre de coups max est:  ", 1 + int(log2(limit)))
             nombre = int(input(f"{Joueur1}, veuillez choisir un nombre, la limite est {limit} et ton nombre d'essai actuel est {nb_coup}   "))
             while 0 > nombre or nombre > limit:
-                os.system('clear')
+                os.system("cls" if os.name == "nt" else "clear")
                 print(f"Erreur de saisie, le nombre {nombre} n'est pas inclu dans la limite : ]0 {limit}]")
                 nombre = int(input(f"{Joueur1}, veuillez choisir un nombre, la limite est {limit} et ton nombre d'essai actuel est {nb_coup}   "))
             nb_coup += 1
-            os.system('clear')
+            os.system("cls" if os.name == "nt" else "clear")
             reponse = str(input(f"Est-ce que le nombre {nombre} est plus grand (+), plus petit (-), ou égal (=) au nombre choisi ?  "))
 
             if reponse == '+':

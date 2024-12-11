@@ -1,6 +1,6 @@
 # Créé par henzo, le 23/10/2024 avec Python 3.7 en UTF-8
 
-from os import system
+from os import system, name
 
 def saisie_oui_non(msg_saisie:str, msg_erreur:str, oui:str='o', non:str='n')->bool:
     """
@@ -23,7 +23,7 @@ def saisie_oui_non(msg_saisie:str, msg_erreur:str, oui:str='o', non:str='n')->bo
     choix = input(">> ").lower()
 
     while choix != oui and choix != non:
-        system("clear")
+        system("cls" if name == "nt" else "clear")
 
         print(msg_erreur)
         print(msg_saisie)

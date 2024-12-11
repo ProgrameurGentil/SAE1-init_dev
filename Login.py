@@ -1,6 +1,6 @@
 # Créé par henzo, le 20/11/2024 avec Python 3.7 en UTF-8
 
-from os import system
+from os import system, name
 from typing import List
 from Saisie_variable import saisie_oui_non
 
@@ -65,7 +65,7 @@ def connexion(pseudo_existant:List[str], numero:int, pseudo_deja_pris:str="")->s
     pseudo : str
     choix : str
 
-    system("clear")
+    system("cls" if name == "nt" else "clear")
 
     pseudo = ""
     choix = False
@@ -73,7 +73,7 @@ def connexion(pseudo_existant:List[str], numero:int, pseudo_deja_pris:str="")->s
     while pseudo == "":
         print(f"Joueur {numero}, quel est votre pseudo ?")
         pseudo = input(">> ")
-        system("clear")
+        system("cls" if name == "nt" else "clear")
 
         if pseudo_deja_pris != pseudo:
             if not verif_pseudo(pseudo):
