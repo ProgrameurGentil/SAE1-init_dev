@@ -240,19 +240,19 @@ def morpion(score_j1:int, score_j2:int, nom_j1:str, nom_j2)->tuple:
     symbole_joueur = ['O', 'X']
     joueur_gagnant = -1
 
-    while jouer:
+    while jouer: # tant que l'utilisateur veut faire une partie
         os.system("cls" if os.name == "nt" else "clear")
-        plateau = [['','',''],
+        plateau = [['','',''], 
                    ['','',''],
-                   ['','','']]
+                   ['','','']] 
 
-        if joueur_gagnant < 1 or joueur_gagnant > 2:
+        if joueur_gagnant < 1 or joueur_gagnant > 2: # on choisi le joueur qui comment aléatoirement s'il n'y a pas de gagnant
             joueur_gagnant = randint(1,2)
         joueur_jouant = joueur_gagnant
 
-        while not verif_morpion(plateau) and not verif_remplissage(plateau):
+        while not verif_morpion(plateau) and not verif_remplissage(plateau): # tant qu'il n'y a pas d'allignement et que le plateau n'est pas rempli
             os.system("cls" if os.name == "nt" else "clear")
-            if joueur_jouant == 1:
+            if joueur_jouant == 1: # on indique a l'utilisateur de jouer
                 print(f"{nom_j1}, à vous de jouer !! (Vous etes {symbole_joueur[joueur_jouant - 1]})")
             else:
                 print(f"{nom_j2}, à vous de jouer !! (Vous etes {symbole_joueur[joueur_jouant - 1]})")
@@ -260,28 +260,28 @@ def morpion(score_j1:int, score_j2:int, nom_j1:str, nom_j2)->tuple:
 
             placement = saisie_placement(plateau)
 
-            while not placement_plateau(plateau, placement, symbole_joueur[joueur_jouant - 1]):
+            while not placement_plateau(plateau, placement, symbole_joueur[joueur_jouant - 1]): # si le placement est deja pris
                 os.system("cls" if os.name == "nt" else "clear")
                 affichage(plateau)
                 print("Ah... je crois que la place est deja prise...")
                 placement = saisie_placement(plateau)
 
-            if joueur_jouant == 1:
+            if joueur_jouant == 1: # on inverse les roles
                 joueur_jouant = 2
             else:
                 joueur_jouant = 1
 
 
-        if verif_remplissage(plateau):
+        if verif_remplissage(plateau): # si le plateau est rempli on indique une egalite
             os.system("cls" if os.name == "nt" else "clear")
             affichage(plateau)
             print("Stoooopp !! Egalité !")
-        else:
+        else: # sinon, il y a un gagant
             os.system("cls" if os.name == "nt" else "clear")
             affichage(plateau)
-            joueur_gagnant = symbole_joueur.index(symbole_gagnant_morpion(plateau)) + 1
+            joueur_gagnant = symbole_joueur.index(symbole_gagnant_morpion(plateau)) + 1 # on regarde qui est le gagnant on fonction de son symboles
 
-            if joueur_gagnant == 1:
+            if joueur_gagnant == 1: # on indique au joueur son nombre point gagne
                 print(f"Bravo {nom_j1}, tu as gagné 25 pnts !!")
             else:
                 print(f"Bravo {nom_j2}, tu as gagné 25 pnts !!")
@@ -294,7 +294,7 @@ def morpion(score_j1:int, score_j2:int, nom_j1:str, nom_j2)->tuple:
 
         null = input("\n(taper sur entree pour continuer...)")
         os.system("cls" if os.name == "nt" else "clear")
-        jouer = menu()
+        jouer = menu() # on demmande s'il veut re joueur
     os.system("cls" if os.name == "nt" else "clear")
 
     return score_j1, score_j2
