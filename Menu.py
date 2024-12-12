@@ -12,7 +12,7 @@ from enregistrement import sauvegarde # sauvegarde des donnees
 
 def affichage_nb_score(nom_joueur : str, l_score:List[int], nom_jeu:str):
     """
-    procedure qui affiche les scores dans l'odre decroissant du joueur
+    procedure qui affiche les scores dans l'ordre decroissant du joueur
 
     entree : une liste d'entier qui correspond au score du joueur
              deux chaines de caracteres qui correspondent au du joueur et du nom du jeu
