@@ -20,9 +20,9 @@ def aide(chemin_aide:str):
     nul : str
 
     system("cls" if name == "nt" else "clear")
-    #if not exists(chemin_aide): # verification de l'existance du fichier
-    #    print("Le fichier d'aide lié à ce jeu n'a pas été trouvé")
-    #else:
+    if not exists(chemin_aide): # verification de l'existance du fichier
+        print("Le fichier d'aide lié à ce jeu n'a pas été trouvé")
+    else:
     with open(chemin_aide, encoding="UTF-8") as fichier: # l'encodage des fichiers textes est en UTF-8
         fichier_ouvert = fichier.read()
 
