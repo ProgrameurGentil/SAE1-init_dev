@@ -20,7 +20,7 @@
 <div>
   <h2>Comme l'utiliser</h2>
   <p>Dans le fichier scripts, se trouve un fichier "main.py". C'est le fichier à executer pour pouvoir joueur.</p>
-  <p>Bon jeu</p>
+  <p>Bon jeu.</p>
 </div>
 <div>
   <h2>Langage utilisé</h2>
