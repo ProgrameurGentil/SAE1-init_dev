@@ -26,3 +26,10 @@
   <h2>Langage utilisé</h2>
   <img src="https://skillicons.dev/icons?i=python" />
 </div>
+<div>
+  <h2>Contributeurs</h2>
+  <ul>
+    <li><p><a href="https://github.com/Xulungu">Xulungu</a></p></li>
+   <li><p><a href="https://github.com/ProgrammeurGentil">ProgrammeurGentil</a></p></li>
+  </ul>
+</div>
