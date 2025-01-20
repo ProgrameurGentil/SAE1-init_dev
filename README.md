@@ -33,3 +33,7 @@
    <li><p><a href="https://github.com/ProgrammeurGentil">ProgrammeurGentil</a></p></li>
   </ul>
 </div>
+<div>
+  <h2>Licence</h2>
+  <p>Vous pouvez retrouver la licence <a href="https://github.com/ProgrameurGentil/SAE1-init_dev/blob/main/LICENCE.md">ici</a>.</p>
+</div>
