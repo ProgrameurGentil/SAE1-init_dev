@@ -18,8 +18,8 @@
   </ul>
 </div>
 <div>
-  <h2>Comme l'utiliser</h2>
-  <p>Dans le dossier scripts, se trouve un fichier "main.py". C'est le fichier à executer pour pouvoir joueur.</p>
+  <h2>Comment l'utiliser</h2>
+  <p>Dans le depot se trouve un fichier "main.py". C'est le fichier à executer pour pouvoir joueur.</p>
   <p>Bon jeu.</p>
 </div>
 <div>
