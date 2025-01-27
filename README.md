@@ -35,5 +35,5 @@
 </div>
 <div>
   <h2>Licence</h2>
-  <p>Vous pouvez retrouver la licence <a href="https://github.com/ProgrameurGentil/SAE1-init_dev/blob/main/LICENCE.md">ici</a>.</p>
+  <p>Vous pouvez retrouver la licence <a href="https://github.com/ProgrameurGentil/SAE1-init_dev?tab=License-1-ov-file">ici</a>.</p>
 </div>
